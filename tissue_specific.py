@@ -27,18 +27,13 @@ read_header = False
 for line in fp:
     fields = line.strip().split('\t')
     probe = fields[0]
-    # print(fields)
-    # print_profile(group_no, label, prifoke, member)
     if not read_header:
         read_header = True
         continue
-    print('probeset:' + probe)
-    # for val in fields:
     for i in range(2, len(fields)):
         val = fields[i]
-        # tissue_no = str(i - 1)
         tissue_no = f'refexo:v{i-1}_40'
         if val == '1':
-            print('    refexo:overExpressedIn ' + tissue_no)
+            print(f'probe:{probe} refexo:overExpressedIn ' + tissue_no + ' .')
         elif val == '-1':
-            print('    refexo:underExpressedIn ' + tissue_no)
+            print(f'probe:{probe} refexo:underExpressedIn ' + tissue_no + ' .')
