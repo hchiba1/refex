@@ -1,0 +1,490 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix refexo: <http://purl.jp/bio/01/refexo#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<http://purl.jp/bio/01/refexo>	dc:creator	"Shuichi Kawashima"@en .
+<http://purl.jp/bio/01/refexo>	dcterms:date	"2018-09-19"^^xsd:date .
+<http://purl.jp/bio/01/refexo>	dcterms:description	"RefEx RDF ontology"@en .
+<http://purl.jp/bio/01/refexo>	rdf:type	owl:Ontology .
+<http://purl.jp/bio/01/refexo>	rdfs:label	"RefEx RDF ontology"@en .
+<http://purl.jp/bio/01/refexo>	owl:imports	<http://www.w3.org/2004/02/skos/core> .
+<http://purl.jp/bio/01/refexo>	owl:versionInfo	"0.05"^^xsd:string .
+
+refexo:RefExEntry	rdf:type	owl:Class .
+refexo:RefExEntry	rdfs:label	"RefEx entry"@en .
+refexo:RefExEntry	skos:prefLabel	"RefEx entry"@en .
+refexo:RefExEntry	skos:definition	"A refex entry is a data item consisting of a gene expression value, a referece to a gene (or a probe) and a sapmle."@en .
+
+refexo:RefExEntry	rdfs:subClassOf	<nodeID://b4673937898> .
+<nodeID://b4673937898>	rdf:type	owl:Restriction .
+<nodeID://b4673937898>	owl:onProperty	refexo:refexSample .
+<nodeID://b4673937898>	owl:allValuesFrom	refexo:RefExSample .
+
+refexo:RefExEntry	rdfs:subClassOf	<nodeID://b4673937900> .
+<nodeID://b4673937900>	rdf:type	owl:Restriction .
+<nodeID://b4673937900>	owl:onProperty	refexo:refexSample .
+<nodeID://b4673937900>	owl:cardinality	"1"^^xsd:nonNegativeInteger .
+
+refexo:RefExEntry	rdfs:subClassOf	<nodeID://b4673937899> .
+<nodeID://b4673937899>	rdf:type	owl:Restriction .
+<nodeID://b4673937899>	owl:onProperty	refexo:expValue .
+<nodeID://b4673937899>	owl:cardinality	"1"^^xsd:nonNegativeInteger .
+
+refexo:refexSample	rdf:type	owl:ObjectProperty .
+refexo:refexSample	rdfs:label	"refex sample"@en .
+refexo:refexSample	skos:prefLabel	"refex sample"@en .
+refexo:refexSample	rdfs:domain	refexo:RefExEntry .
+refexo:refexSample	rdfs:range	refexo:RefExSample .
+
+refexo:expValue	rdf:type	owl:DatatypeProperty .
+refexo:expValue	rdfs:label	"gene expression value"@en .
+refexo:expValue	skos:prefLabel	"gene expression value"@en .
+refexo:expValue	rdfs:domain	refexo:RefExEntry .
+refexo:expValue	rdfs:range	xsd:decimal .
+refexo:expValue	rdfs:range	xsd:double .
+refexo:expValue	rdfs:range	xsd:float .
+
+refexo:originalDescription	rdf:type	owl:DatatypeProperty .
+refexo:originalDescription	rdfs:label	"original description"@en .
+refexo:originalDescription	skos:prefLabel	"original description"@en .
+refexo:originalDescription	rdfs:domain	refexo:RefExEntry .
+refexo:originalDescription	rdfs:domain	refexo:RefExSample .
+
+refexo:refexRefinedDescription	rdf:type	owl:DatatypeProperty .
+refexo:refexRefinedDescription	rdfs:label	"refex_refined_description"@en .
+refexo:refexRefinedDescription	skos:prefLabel	"refex_refined_description"@en .
+refexo:refexRefinedDescription	rdfs:domain	refexo:RefExEntry .
+refexo:refexRefinedDescription	rdfs:domain	refexo:RefExSample .
+
+refexo:refexSampleCategory	rdf:type	owl:DatatypeProperty .
+refexo:refexSampleCategory	rdfs:label	"refex sample category"@en .
+refexo:refexSampleCategory	skos:prefLabel	"refex sample category"@en .
+
+refexo:sampleReference	rdf:type	owl:ObjectProperty .
+refexo:sampleReference	rdfs:label	"sample reference"@en .
+refexo:sampleReference	skos:prefLabel	"sample reference"@en .
+refexo:sampleReference	rdfs:domain	refexo:RefExEntry .
+
+refexo:RefExSample	rdf:type	owl:Class .
+refexo:RefExSample	rdfs:label	"RefEx sample"@en .
+refexo:RefExSample	skos:prefLabel	"RefEx sample"@en .
+refexo:RefExSample	skos:definition	"A sample used for transcriptome experiments"@en .
+
+refexo:sample	rdf:type	owl:ObjectProperty .
+refexo:sample	rdfs:label	"sample"@en .
+refexo:sample	skos:prefLabel	"sample"@en .
+
+refexo:belongsToAnatomy	rdf:type	owl:ObjectProperty .
+refexo:belongsToAnatomy	rdfs:label	"belongs to anatomy"@en .
+refexo:belongsToAnatomy	skos:prefLabel	"belongs to anatomy"@en .
+refexo:belongsToAnatomy	rdfs:domain	refexo:RefExSample .
+
+refexo:belongsToCellType	rdf:type	owl:ObjectProperty .
+refexo:belongsToCellType	rdfs:label	"belongs to cell type"@en .
+refexo:belongsToCellType	skos:prefLabel	"belongs to cell type"@en .
+refexo:belongsToCellType	rdfs:domain	refexo:RefExSample .
+
+refexo:belongsToDevelopmentSite	rdf:type	owl:ObjectProperty .
+refexo:belongsToDevelopmentSite	rdfs:label	"belongs to development site"@en .
+refexo:belongsToDevelopmentSite	skos:prefLabel	"belongs to development site"@en .
+refexo:belongsToDevelopmentSite	rdfs:domain	refexo:RefExSample .
+
+refexo:belongsToDisease	rdf:type	owl:ObjectProperty .
+refexo:belongsToDisease	rdfs:label	"belognsToDisease"@en .
+refexo:belongsToDisease	skos:prefLabel	"belognsToDisease"@en .
+refexo:belongsToDisease	rdfs:domain	refexo:RefExSample .
+
+refexo:developmentalStage	rdf:type	owl:ObjectProperty .
+refexo:developmentalStage	rdfs:label	"developmentalStage"@en .
+refexo:developmentalStage	skos:prefLabel	"developmentalStage"@en .
+refexo:developmentalStage	rdfs:domain	refexo:RefExSample .
+
+refexo:organism	rdf:type	owl:ObjectProperty .
+refexo:organism	rdfs:label	"organism"@en .
+refexo:organism	skos:prefLabel	"organism"@en .
+refexo:organism	rdfs:domain	refexo:RefExSample .
+
+refexo:age	rdf:type	owl:ObjectProperty .
+refexo:age	rdfs:label	"age"@en .
+refexo:age	skos:prefLabel	"age"@en .
+refexo:age	rdfs:domain	refexo:RefExSample .
+
+refexo:sex	rdf:type	owl:ObjectProperty .
+refexo:sex	rdfs:label	"sex"@en .
+refexo:sex	skos:prefLabel	"sex"@en .
+
+refexo:TPM	dcterms:references	"<https://www.ncbi.nlm.nih.gov/pubmed/20022975>"^^xsd:string .
+refexo:TPM	rdf:type	owl:Class .
+refexo:TPM	rdfs:label	"Transcripts per million"@en .
+refexo:TPM	skos:prefLabel	"Transcripts per million"@en .
+
+refexo:Intensity	rdf:type	owl:Class .
+refexo:Intensity	rdfs:label	"Intensity"@en .
+
+refexo:refexAlphabeticalUniqOrder	rdf:type	owl:DatatypeProperty .
+refexo:refexAlphabeticalUniqOrder	rdfs:comment	"Alphabetical Uniq Order by celllines, primary cells, adult tissues and fetal tissues"@en .
+refexo:refexAlphabeticalUniqOrder	rdfs:label	"refexAlphabeticalUniqOrder"@en .
+
+refexo:AnatomicalClassification	rdf:type	owl:Class .
+refexo:AnatomicalClassification	rdfs:label	"AnatomicalClassification"@en .
+refexo:AnatomicalClassification	skos:prefLabel	"AnatomicalClassification"@en .
+
+refexo:AnatomicalClassification10	rdf:type	owl:Class .
+refexo:AnatomicalClassification10	rdfs:label	"AnatomicalClassification10"@en .
+refexo:AnatomicalClassification10	skos:prefLabel	"AnatomicalClassification10"@en .
+refexo:AnatomicalClassification10	dcterms:description	"The body parts classification for mammals (10 classes version) defined in the RefEx database"@en .
+refexo:AnatomicalClassification10	rdfs:subClassOf	refexo:AnatomicalClassification .
+
+refexo:AnatomicalClassification40	rdf:type	owl:Class .
+refexo:AnatomicalClassification40	rdfs:label	"AnatomicalClassification40"@en .
+refexo:AnatomicalClassification40	skos:prefLabel	"AnatomicalClassification40"@en .
+refexo:AnatomicalClassification40	dcterms:description	"The body parts classification for mammals (40 classes version) defined in the RefEx database"@en .
+refexo:AnatomicalClassification40	rdfs:subClassOf	refexo:AnatomicalClassification .
+
+refexo:refexTissueClass10	rdf:type	owl:ObjectProperty .
+refexo:refexTissueClass10	rdfs:domain	refexo:RefExSample .
+refexo:refexTissueClass10	rdfs:label	"refex tissue classification 10"@en .
+refexo:refexTissueClass10	rdfs:range	refexo:AnatomicalClassification10 .
+refexo:refexTissueClass10	skos:prefLabel	"refex tissue classification 10"@en .
+
+refexo:refexTissueClass40	rdf:type	owl:ObjectProperty .
+refexo:refexTissueClass40	rdfs:domain	refexo:RefExSample .
+refexo:refexTissueClass40	rdfs:label	"refex tissue classification 40"@en .
+refexo:refexTissueClass40	rdfs:range	refexo:AnatomicalClassification40 .
+refexo:refexTissueClass40	skos:prefLabel	"refex tissue classification 40"@en .
+
+refexo:v01_10	dcterms:identifier	"v01_10"^^xsd:string .
+refexo:v01_10	rdf:type	refexo:AnatomicalClassification10 .
+refexo:v01_10	rdfs:label	"Brain"@en .
+refexo:v01_10	rdfs:label	"\u8133"@ja .
+refexo:v01_10	skos:definition	"Brain"@en .
+refexo:v01_10	skos:exactMatch	obo:UBERON_0000955 .
+refexo:v01_10	skos:prefLabel	"Brain"@en .
+refexo:v02_10	dcterms:identifier	"v02_10"^^xsd:string .
+refexo:v02_10	rdf:type	refexo:AnatomicalClassification10 .
+refexo:v02_10	rdfs:label	"Blood"@en .
+refexo:v02_10	rdfs:label	"\u8840"@ja .
+refexo:v02_10	skos:definition	"Blood"@en .
+refexo:v02_10	skos:exactMatch	obo:UBERON_0000178 .
+refexo:v02_10	skos:prefLabel	"Blood"@en .
+refexo:v03_10	dcterms:identifier	"v03_10"^^xsd:string .
+refexo:v03_10	rdf:type	refexo:AnatomicalClassification10 .
+refexo:v03_10	rdfs:label	"Connective"@en .
+refexo:v03_10	rdfs:label	"\u7D50"@ja .
+refexo:v03_10	skos:definition	"Connective"@en .
+refexo:v03_10	skos:prefLabel	"Connective"@en .
+refexo:v04_10	dcterms:identifier	"v04_10"^^xsd:string .
+refexo:v04_10	rdf:type	refexo:AnatomicalClassification10 .
+refexo:v04_10	rdfs:label	"Reproductive"@en .
+refexo:v04_10	rdfs:label	"\u6B96"@ja .
+refexo:v04_10	skos:definition	"Reproductive"@en .
+refexo:v04_10	skos:prefLabel	"Reproductive"@en .
+refexo:v05_10	dcterms:identifier	"v05_10"^^xsd:string .
+refexo:v05_10	rdf:type	refexo:AnatomicalClassification10 .
+refexo:v05_10	rdfs:label	"Muscular"@en .
+refexo:v05_10	rdfs:label	"\u7B4B"@ja .
+refexo:v05_10	skos:definition	"Muscular"@en .
+refexo:v05_10	skos:prefLabel	"Muscular"@en .
+refexo:v06_10	dcterms:identifier	"v06_10"^^xsd:string .
+refexo:v06_10	rdf:type	refexo:AnatomicalClassification10 .
+refexo:v06_10	rdfs:label	"Alimentary"@en .
+refexo:v06_10	rdfs:label	"\u6D88"@ja .
+refexo:v06_10	skos:definition	"Alimentary"@en .
+refexo:v06_10	skos:prefLabel	"Alimentary"@en .
+refexo:v07_10	dcterms:identifier	"v07_10"^^xsd:string .
+refexo:v07_10	rdf:type	refexo:AnatomicalClassification10 .
+refexo:v07_10	rdfs:label	"Liver"@en .
+refexo:v07_10	rdfs:label	"\u809D"@ja .
+refexo:v07_10	skos:definition	"Liver"@en .
+refexo:v07_10	skos:exactMatch	obo:UBERON_0002107 .
+refexo:v07_10	skos:prefLabel	"Liver"@en .
+refexo:v08_10	dcterms:identifier	"v08_10"^^xsd:string .
+refexo:v08_10	rdf:type	refexo:AnatomicalClassification10 .
+refexo:v08_10	rdfs:label	"Lung"@en .
+refexo:v08_10	rdfs:label	"\u80BA"@ja .
+refexo:v08_10	skos:definition	"Lung"@en .
+refexo:v08_10	skos:prefLabel	"Lung"@en .
+refexo:v09_10	dcterms:identifier	"v09_10"^^xsd:string .
+refexo:v09_10	rdf:type	refexo:AnatomicalClassification10 .
+refexo:v09_10	rdfs:label	"\u814E"@ja .
+refexo:v09_10	rdfs:label	"Urinary"@en .
+refexo:v09_10	skos:definition	"Urinary"@en .
+refexo:v09_10	skos:exactMatch	obo:UBERON_0002048 .
+refexo:v09_10	skos:prefLabel	"Urinary"@en .
+refexo:v10_10	dcterms:identifier	"v10_10"^^xsd:string .
+refexo:v10_10	rdf:type	refexo:AnatomicalClassification10 .
+refexo:v10_10	rdfs:label	"Endo/Exo-crine"@en .
+refexo:v10_10	rdfs:label	"\u6CCC"@ja .
+refexo:v10_10	skos:definition	"Endo/Exo-crine"@en .
+refexo:v10_10	skos:prefLabel	"Endo/Exo-crine"@en .
+
+refexo:v01_40	dcterms:identifier	"v01_40"^^xsd:string .
+refexo:v01_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v01_40	rdfs:label	"Cerebrum"@en .
+refexo:v01_40	rdfs:label	"\u5927\u8133"@ja .
+refexo:v01_40	skos:definition	"Cerebrum"@en .
+refexo:v01_40	skos:prefLabel	"Cerebrum"@en .
+refexo:v02_40	dcterms:identifier	"v02_40"^^xsd:string .
+refexo:v02_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v02_40	rdfs:label	"Cerebellum"@en .
+refexo:v02_40	rdfs:label	"\u5C0F\u8133"@ja .
+refexo:v02_40	skos:definition	"Cerebellum"@en .
+refexo:v02_40	skos:prefLabel	"Cerebellum"@en .
+refexo:v03_40	dcterms:identifier	"v03_40"^^xsd:string .
+refexo:v03_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v03_40	rdfs:label	"Brain stem"@en .
+refexo:v03_40	rdfs:label	"\u8133\u5E79"@ja .
+refexo:v03_40	skos:definition	"Brain stem"@en .
+refexo:v03_40	skos:prefLabel	"Brain stem"@en .
+refexo:v04_40	dcterms:identifier	"v04_40"^^xsd:string .
+refexo:v04_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v04_40	rdfs:label	"Corpus callosum/Glia"@en .
+refexo:v04_40	rdfs:label	"\u8133\u6881"@ja .
+refexo:v04_40	skos:definition	"Corpus callosum/Glia"@en .
+refexo:v04_40	skos:exactMatch	obo:UBERON_0002336 .
+refexo:v04_40	skos:prefLabel	"Corpus callosum/Glia"@en .
+refexo:v05_40	dcterms:identifier	"v05_40"^^xsd:string .
+refexo:v05_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v05_40	rdfs:label	"Pineal gland"@en .
+refexo:v05_40	rdfs:label	"\u677E\u679C\u4F53"@ja .
+refexo:v05_40	skos:definition	"Pineal gland"@en .
+refexo:v05_40	skos:exactMatch	obo:UBERON_0001905 .
+refexo:v05_40	skos:prefLabel	"Pineal gland"@en .
+refexo:v06_40	dcterms:identifier	"v06_40"^^xsd:string .
+refexo:v06_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v06_40	rdfs:label	"Peripheral nerve"@en .
+refexo:v06_40	rdfs:label	"\u672B\u68A2\u795E\u7D4C"@ja .
+refexo:v06_40	skos:definition	"Peripheral nerve"@en .
+refexo:v06_40	skos:prefLabel	"Peripheral nerve"@en .
+refexo:v07_40	dcterms:identifier	"v07_40"^^xsd:string .
+refexo:v07_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v07_40	rdfs:label	"Spine"@en .
+refexo:v07_40	rdfs:label	"\u810A\u67F1"@ja .
+refexo:v07_40	skos:definition	"Spine"@en .
+refexo:v07_40	skos:prefLabel	"Spine"@en .
+refexo:v08_40	dcterms:identifier	"v08_40"^^xsd:string .
+refexo:v08_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v08_40	rdfs:label	"Retina"@en .
+refexo:v08_40	rdfs:label	"\u7DB2\u819C"@ja .
+refexo:v08_40	skos:definition	"Retina"@en .
+refexo:v08_40	skos:exactMatch	obo:UBERON_0000966 .
+refexo:v08_40	skos:prefLabel	"Retina"@en .
+refexo:v09_40	dcterms:identifier	"v09_40"^^xsd:string .
+refexo:v09_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v09_40	rdfs:label	"Eye"@en .
+refexo:v09_40	rdfs:label	"\u76EE"@ja .
+refexo:v09_40	skos:definition	"Eye"@en .
+refexo:v09_40	skos:exactMatch	obo:UBERON_0002048 .
+refexo:v09_40	skos:prefLabel	"Eye"@en .
+refexo:v10_40	dcterms:identifier	"v10_40"^^xsd:string .
+refexo:v10_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v10_40	rdfs:label	"Artery/Aorta"@en .
+refexo:v10_40	rdfs:label	"\u52D5\u8108"@ja .
+refexo:v10_40	skos:definition	"Artery/Aorta"@en .
+refexo:v10_40	skos:prefLabel	"Eye"@en .
+refexo:v11_40	dcterms:identifier	"v11_40"^^xsd:string .
+refexo:v11_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v11_40	rdfs:label	"\u9759\u8108"@ja .
+refexo:v11_40	rdfs:label	"Vein"@en .
+refexo:v11_40	skos:definition	"Vein"@en .
+refexo:v11_40	skos:prefLabel	"Vein"@en .
+refexo:v12_40	dcterms:identifier	"v12_40"^^xsd:string .
+refexo:v12_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v12_40	rdfs:label	"Lymphnode"@en .
+refexo:v12_40	rdfs:label	"\u30EA\u30F3\u30D1\u7BC0"@ja .
+refexo:v12_40	skos:definition	"Lymphnode"@en .
+refexo:v12_40	skos:prefLabel	"Lymphnode"@en .
+refexo:v13_40	dcterms:identifier	"v13_40"^^xsd:string .
+refexo:v13_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v13_40	rdfs:label	"Peripheral blood"@en .
+refexo:v13_40	rdfs:label	"\u672B\u68A2\u8840"@ja .
+refexo:v13_40	skos:definition	"Peripheral blood"@en .
+refexo:v13_40	skos:exactMatch	obo:UBERON_0002037 .
+refexo:v13_40	skos:prefLabel	"Peripheral blood"@en .
+refexo:v14_40	dcterms:identifier	"v14_40"^^xsd:string .
+refexo:v14_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v14_40	rdfs:label	"Spleen"@en .
+refexo:v14_40	rdfs:label	"\u813E\u81D3"@ja .
+refexo:v14_40	skos:definition	"Spleen"@en .
+refexo:v14_40	skos:exactMatch	obo:UBERON_0002037 .
+refexo:v14_40	skos:prefLabel	"Spleen"@en .
+refexo:v15_40	dcterms:identifier	"v15_40"^^xsd:string .
+refexo:v15_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v15_40	rdfs:label	"Thymus"@en .
+refexo:v15_40	rdfs:label	"\u80F8\u817A"@ja .
+refexo:v15_40	skos:definition	"\u80F8\u817A"@ja .
+refexo:v15_40	skos:exactMatch	obo:UBERON_0002370 .
+refexo:v15_40	skos:prefLabel	"Thymus"@en .
+refexo:v16_40	dcterms:identifier	"v16_40"^^xsd:string .
+refexo:v16_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v16_40	rdfs:label	"Bone marrow"@en .
+refexo:v16_40	rdfs:label	"\u9AA8\u9AC4"@ja .
+refexo:v16_40	skos:definition	"Bone marrow"@en .
+refexo:v16_40	skos:exactMatch	obo:UBERON_0002371 .
+refexo:v16_40	skos:prefLabel	"Bone marrow"@en .
+refexo:v17_40	dcterms:identifier	"v17_40"^^xsd:string .
+refexo:v17_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v17_40	rdfs:label	"Adipose"@en .
+refexo:v17_40	rdfs:label	"\u8102\u80AA"@ja .
+refexo:v17_40	skos:definition	"Adipose"@en .
+refexo:v17_40	skos:exactMatch	obo:UBERON_0001013 .
+refexo:v17_40	skos:prefLabel	"Adipose"@en .
+refexo:v18_40	dcterms:identifier	"v18_40"^^xsd:string .
+refexo:v18_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v18_40	rdfs:label	"Bone"@en .
+refexo:v18_40	rdfs:label	"\u9AA8"@ja .
+refexo:v18_40	skos:definition	"Bone"@en .
+refexo:v18_40	skos:prefLabel	"Bone"@en .
+refexo:v19_40	dcterms:identifier	"v19_40"^^xsd:string .
+refexo:v19_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v19_40	rdfs:label	"Skin"@en .
+refexo:v19_40	rdfs:label	"\u76AE\u819A"@ja .
+refexo:v19_40	skos:definition	"Skin"@en .
+refexo:v19_40	skos:prefLabel	"Skin"@en .
+refexo:v20_40	dcterms:identifier	"v20_40"^^xsd:string .
+refexo:v20_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v20_40	rdfs:label	"\u5B50\u5BAE"@ja .
+refexo:v20_40	rdfs:label	"Uterus"@en .
+refexo:v20_40	skos:definition	"Uterus"@en .
+refexo:v20_40	skos:exactMatch	obo:UBERON_0000995 .
+refexo:v20_40	skos:prefLabel	"Uterus"@en .
+refexo:v21_40	dcterms:identifier	"v21_40"^^xsd:string .
+refexo:v21_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v21_40	rdfs:label	"Placenta"@en .
+refexo:v21_40	rdfs:label	"\u80CE\u76E4"@ja .
+refexo:v21_40	skos:definition	"Placenta"@en .
+refexo:v21_40	skos:exactMatch	obo:UBERON_0001987 .
+refexo:v21_40	skos:prefLabel	"Placenta"@en .
+refexo:v22_40	dcterms:identifier	"v22_40"^^xsd:string .
+refexo:v22_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v22_40	rdfs:label	"Prostate"@en .
+refexo:v22_40	rdfs:label	"\u80CE\u76E4"@ja .
+refexo:v22_40	skos:definition	"Prostate"@en .
+refexo:v22_40	skos:exactMatch	obo:UBERON_0002367 .
+refexo:v22_40	skos:prefLabel	"Placenta"@en .
+refexo:v23_40	dcterms:identifier	"v23_40"^^xsd:string .
+refexo:v23_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v23_40	rdfs:label	"Ovary"@en .
+refexo:v23_40	rdfs:label	"\u5375\u5DE3"@ja .
+refexo:v23_40	skos:definition	"Ovary"@en .
+refexo:v23_40	skos:prefLabel	"Ovary"@en .
+refexo:v24_40	dcterms:identifier	"v24_40"^^xsd:string .
+refexo:v24_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v24_40	rdfs:label	"Testis"@en .
+refexo:v24_40	rdfs:label	"\u7CBE\u5DE3"@ja .
+refexo:v24_40	skos:definition	"Testis"@en .
+refexo:v24_40	skos:exactMatch	obo:UBERON_0000473 .
+refexo:v24_40	skos:prefLabel	"Testis"@en .
+refexo:v25_40	dcterms:identifier	"v25_40"^^xsd:string .
+refexo:v25_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v25_40	rdfs:label	"Heart"@en .
+refexo:v25_40	rdfs:label	"\u5FC3\u81D3"@ja .
+refexo:v25_40	skos:definition	"Heart"@en .
+refexo:v25_40	skos:prefLabel	"Heart"@en .
+refexo:v26_40	dcterms:identifier	"v26_40"^^xsd:string .
+refexo:v26_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v26_40	rdfs:label	"Muscle"@en .
+refexo:v26_40	rdfs:label	"\u9AA8\u683C\u7B4B"@ja .
+refexo:v26_40	skos:definition	"Muscle"@en .
+refexo:v26_40	skos:prefLabel	"Muscle"@en .
+refexo:v27_40	dcterms:identifier	"v27_40"^^xsd:string .
+refexo:v27_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v27_40	rdfs:label	"Esophagus"@en .
+refexo:v27_40	rdfs:label	"\u98DF\u9053"@ja .
+refexo:v27_40	skos:definition	"Esophagus"@en .
+refexo:v27_40	skos:exactMatch	obo:UBERON_0001043 .
+refexo:v27_40	skos:prefLabel	"Esophagus"@en .
+refexo:v28_40	dcterms:identifier	"v28_40"^^xsd:string .
+refexo:v28_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v28_40	rdfs:label	"Stomach"@en .
+refexo:v28_40	rdfs:label	"\u80C3"@ja .
+refexo:v28_40	skos:definition	"Stomach"@en .
+refexo:v28_40	skos:exactMatch	obo:UBERON_0000945 .
+refexo:v28_40	skos:prefLabel	"Stomach"@en .
+refexo:v29_40	dcterms:identifier	"v29_40"^^xsd:string .
+refexo:v29_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v29_40	rdfs:label	"Intestine"@en .
+refexo:v29_40	rdfs:label	"\u8178"@ja .
+refexo:v29_40	skos:definition	"Intestine"@en .
+refexo:v29_40	skos:exactMatch	obo:UBERON_0000160 .
+refexo:v29_40	skos:prefLabel	"Intestine"@en .
+refexo:v30_40	dcterms:identifier	"v30_40"^^xsd:string .
+refexo:v30_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v30_40	rdfs:label	"Colon"@en .
+refexo:v30_40	rdfs:label	"\u7D50\u8178"@ja .
+refexo:v30_40	skos:definition	"Colon"@en .
+refexo:v30_40	skos:exactMatch	obo:UBERON_0001155 .
+refexo:v30_40	skos:prefLabel	"Colon"@en .
+refexo:v31_40	dcterms:identifier	"v31_40"^^xsd:string .
+refexo:v31_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v31_40	rdfs:label	"Liver/Hepato"@en .
+refexo:v31_40	rdfs:label	"\u809D\u81D3"@ja .
+refexo:v31_40	skos:definition	"Liver/Hepato"@en .
+refexo:v31_40	skos:exactMatch	obo:UBERON_0002107 .
+refexo:v31_40	skos:prefLabel	"Liver/Hepato"@en .
+refexo:v32_40	dcterms:identifier	"v32_40"^^xsd:string .
+refexo:v32_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v32_40	rdfs:label	"Lung"@en .
+refexo:v32_40	rdfs:label	"\u80BA"@ja .
+refexo:v32_40	skos:definition	"Lung"@en .
+refexo:v32_40	skos:exactMatch	obo:UBERON_0002108 .
+refexo:v32_40	skos:prefLabel	"Lung"@en .
+refexo:v33_40	dcterms:identifier	"v33_40"^^xsd:string .
+refexo:v33_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v33_40	rdfs:label	"Bladder"@en .
+refexo:v33_40	rdfs:label	"\u8180\u80F1"@ja .
+refexo:v33_40	skos:definition	"Bladder"@en .
+refexo:v33_40	skos:exactMatch	obo:UBERON_0001255 .
+refexo:v33_40	skos:prefLabel	"Bladder"@en .
+refexo:v34_40	dcterms:identifier	"v34_40"^^xsd:string .
+refexo:v34_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v34_40	rdfs:label	"Kidney"@en .
+refexo:v34_40	rdfs:label	"\u814E\u81D3"@ja .
+refexo:v34_40	skos:definition	"Kidney"@en .
+refexo:v34_40	skos:exactMatch	obo:UBERON_0002133 .
+refexo:v34_40	skos:prefLabel	"Kidney"@en .
+refexo:v35_40	dcterms:identifier	"v35_40"^^xsd:string .
+refexo:v35_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v35_40	rdfs:label	"Pituitary"@en .
+refexo:v35_40	rdfs:label	"\u4E0B\u5782\u4F53"@ja .
+refexo:v35_40	skos:definition	"Pituitary"@en .
+refexo:v35_40	skos:exactMatch	obo:UBERON_0000007 .
+refexo:v35_40	skos:prefLabel	"Pituitary"@en .
+refexo:v36_40	dcterms:identifier	"v36_40"^^xsd:string .
+refexo:v36_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v36_40	rdfs:label	"Thyroid/Parathyroid"@en .
+refexo:v36_40	rdfs:label	"\u7532\u72B6\u817A"@ja .
+refexo:v36_40	skos:definition	"Thyroid/Parathyroid"@en .
+refexo:v36_40	skos:prefLabel	"Thyroid/Parathyroid"@en .
+refexo:v37_40	dcterms:identifier	"v37_40"^^xsd:string .
+refexo:v37_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v37_40	rdfs:label	"Adrenal gland"@en .
+refexo:v37_40	rdfs:label	"\u526F\u814E"@ja .
+refexo:v37_40	skos:definition	"Adrenal gland"@en .
+refexo:v37_40	skos:prefLabel	"Adrenal gland"@en .
+refexo:v38_40	dcterms:identifier	"v38_40"^^xsd:string .
+refexo:v38_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v38_40	rdfs:label	"Pancreas"@en .
+refexo:v38_40	rdfs:label	"\u81B5\u81D3"@ja .
+refexo:v38_40	skos:definition	"Pancreas"@en .
+refexo:v38_40	skos:exactMatch	obo:UBERON_0001264 .
+refexo:v38_40	skos:prefLabel	"Pancreas"@en .
+refexo:v39_40	dcterms:identifier	"v39_40"^^xsd:string .
+refexo:v39_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v39_40	rdfs:label	"Breast"@en .
+refexo:v39_40	rdfs:label	"\u4E73\u817A"@ja .
+refexo:v39_40	skos:definition	"Breast"@en .
+refexo:v39_40	skos:exactMatch	obo:UBERON_0000310 .
+refexo:v39_40	skos:prefLabel	"Breast"@en .
+refexo:v40_40	dcterms:identifier	"v40_40"^^xsd:string .
+refexo:v40_40	rdf:type	refexo:AnatomicalClassification40 .
+refexo:v40_40	rdfs:label	"Salivary"@en .
+refexo:v40_40	rdfs:label	"\u553E\u6DB2\u817A"@ja .
+refexo:v40_40	skos:definition	"Salivary"@en .
+refexo:v40_40	skos:prefLabel	"Salivary"@en .
