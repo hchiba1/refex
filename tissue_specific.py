@@ -10,7 +10,7 @@ print("@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .")
 print("@prefix dct: <http://purl.org/dc/terms/> .")
 print('@prefix obo: <http://purl.obolibrary.org/obo/>')
 print('@prefix refexo: <http://purl.jp/bio/01/refexo#>')
-print('@prefix probeset: <http://identifiers.org/affy.probeset/>')
+print('@prefix probe: <http://identifiers.org/affy.probeset/>')
 print()
 
 # def print_profile(group_no, label, prifoke, member):
