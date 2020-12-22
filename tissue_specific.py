@@ -26,10 +26,9 @@ col_name = ''
 prefix_name = ''
 for line in fp:
     fields = line.strip().split('\t')
-    probe = fields[0]
+    col_name = fields[0]
     if not checked_header:
         checked_header = True
-        col_name = fields[0]
         if col_name == 'Affymetrix_probesetID':
             prefix_name = 'affy'
         elif col_name == 'NCBI_RefSeqID':
@@ -37,8 +36,7 @@ for line in fp:
         continue
     for i in range(2, len(fields)):
         val = fields[i]
-        tissue_no = f'refexo:v{i-1}_40'
         if val == '1':
-            print(f'{prefix_name}:{probe} refexo:overExpressedIn ' + tissue_no + ' .')
+            print(f'{prefix_name}:{col_name} refexo:overExpressedIn refexo:v{i-1}_40 .')
         elif val == '-1':
-            print(f'{prefix_name}:{probe} refexo:underExpressedIn ' + tissue_no + ' .')
+            print(f'{prefix_name}:{col_name} refexo:underExpressedIn refexo:v{i-1}_40 .')
