@@ -1,5 +1,6 @@
 @prefix refexo: <http://purl.jp/bio/01/refexo#>
 @prefix affy: <http://identifiers.org/affy.probeset/>
+@prefix refseq: <http://identifiers.org/refseq/>
 
 affy:121_at refexo:overExpressedIn refexo:v34_40 .
 affy:121_at refexo:overExpressedIn refexo:v36_40 .
