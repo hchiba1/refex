@@ -6,20 +6,29 @@ parser = argparse.ArgumentParser(description='RDFize RefEx ID Relation')
 parser.add_argument('data', help='RDFize RefEx ID Relation')
 args = parser.parse_args()
 
-print('@prefix refexo: <http://purl.jp/bio/01/refexo#>')
 print('@prefix ncbigene: <http://identifiers.org/ncbigene/>')
+print('@prefix refexo: <http://purl.jp/bio/01/refexo#>')
+print('@prefix refseq: <http://identifiers.org/refseq/>')
 print('@prefix affy: <http://identifiers.org/affy.probeset/>')
 print()
 
 fp = open(args.data, 'r')
-read_header = False
+checked_header = False
+checked_relation = {}
 for line in fp:
-    fields = line.strip().split('\t')
-    if not read_header:
-        read_header = True
+    if not checked_header:
+        checked_header = True
         continue
-    gene = fields[0]
-    refseq = fields[2]
-    affy = fields[3]
-    if affy:
-        print(f'ncbigene:{gene} refexo:affyProbeSet affy:{affy}')
+    
+    fields = line.strip().split('\t')
+    gene_id = fields[0]
+    refseq_id = fields[2]
+    affy_id = fields[3]
+    
+    if refseq_id and (gene_id, refseq_id) not in checked_relation:
+        print(f'ncbigene:{gene_id} refexo:refSeq refseq:{refseq_id} .')
+        checked_relation[(gene_id, refseq_id)] = True
+        
+    if affy_id and (gene_id, affy_id) not in checked_relation:
+        print(f'ncbigene:{gene_id} refexo:affyProbeSet affy:{affy_id} .')
+        checked_relation[(gene_id, affy_id)] = True
