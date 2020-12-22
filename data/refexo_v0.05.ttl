@@ -1,0 +1,617 @@
+# baseURI: http://purl.jp/bio/01/refexo
+# imports: http://www.w3.org/2004/02/skos/core
+
+@prefix : <http://purl.jp/bio/01/refexo#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.jp/bio/01/refexo>
+  rdf:type owl:Ontology ;
+  dc:creator "Shuichi Kawashima"@en ;
+  dct:date "2018-09-19"^^xsd:date ;
+  dct:description "RefEx RDF ontology"@en ;
+  rdfs:label "RefEx RDF ontology"@en ;
+  owl:imports <http://www.w3.org/2004/02/skos/core> ;
+  owl:versionInfo "0.05"^^xsd:string ;
+.
+:AnatomicalClassification
+  rdf:type owl:Class ;
+  rdfs:label "AnatomicalClassification"@en ;
+  skos:prefLabel "AnatomicalClassification"@en ;
+.
+:AnatomicalClassification10
+  rdf:type owl:Class ;
+  dct:description "The body parts classification for mammals (10 classes version) defined in the RefEx database"@en ;
+  rdfs:label "AnatomicalClassification10"@en ;
+  rdfs:subClassOf :AnatomicalClassification ;
+  skos:prefLabel "AnatomicalClassification10"@en ;
+.
+:AnatomicalClassification40
+  rdf:type owl:Class ;
+  dct:description "The body parts classification for mammals (40 classes version) defined in the RefEx database"@en ;
+  rdfs:label "AnatomicalClassification40"@en ;
+  rdfs:subClassOf :AnatomicalClassification ;
+  skos:prefLabel "AnatomicalClassification40"@en ;
+.
+:Intensity
+  rdf:type owl:Class ;
+  rdfs:label "Intensity"@en ;
+.
+:RefExEntry
+  rdf:type owl:Class ;
+  rdfs:label "RefEx entry"@en ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom :RefExSample ;
+      owl:onProperty :refexSample ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty :expValue ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty :refexSample ;
+    ] ;
+  skos:definition "A refex entry is a data item consisting of a gene expression value, a referece to a gene (or a probe) and a sapmle."@en ;
+  skos:prefLabel "RefEx entry"@en ;
+.
+:RefExSample
+  rdf:type owl:Class ;
+  rdfs:label "RefEx sample"@en ;
+  skos:definition "A sample used for transcriptome experiments"@en ;
+  skos:prefLabel "RefEx sample"@en ;
+.
+:TPM
+  rdf:type owl:Class ;
+  dct:references "<https://www.ncbi.nlm.nih.gov/pubmed/20022975>"^^xsd:string ;
+  rdfs:label "Transcripts per million"@en ;
+  skos:prefLabel "Transcripts per million"@en ;
+.
+:age
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :RefExSample ;
+  rdfs:label "age"@en ;
+  skos:prefLabel "age"@en ;
+.
+:belongsToAnatomy
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :RefExSample ;
+  rdfs:label "belongs to anatomy"@en ;
+  skos:prefLabel "belongs to anatomy"@en ;
+.
+:belongsToCellType
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :RefExSample ;
+  rdfs:label "belongs to cell type"@en ;
+  skos:prefLabel "belongs to cell type"@en ;
+.
+:belongsToDevelopmentSite
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :RefExSample ;
+  rdfs:label "belongs to development site"@en ;
+  skos:prefLabel "belongs to development site"@en ;
+.
+:belongsToDisease
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :RefExSample ;
+  rdfs:label "belognsToDisease"@en ;
+  skos:prefLabel "belognsToDisease"@en ;
+.
+:developmentalStage
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :RefExSample ;
+  rdfs:label "developmentalStage"@en ;
+  skos:prefLabel "developmentalStage"@en ;
+.
+:expValue
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :RefExEntry ;
+  rdfs:label "gene expression value"@en ;
+  rdfs:range xsd:decimal ;
+  rdfs:range xsd:double ;
+  rdfs:range xsd:float ;
+  skos:prefLabel "gene expression value"@en ;
+.
+:organism
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :RefExSample ;
+  rdfs:label "organism"@en ;
+  skos:prefLabel "organism"@en ;
+.
+:originalDescription
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :RefExEntry ;
+  rdfs:domain :RefExSample ;
+  rdfs:label "original description"@en ;
+  skos:prefLabel "original description"@en ;
+.
+:refexAlphabeticalUniqOrder
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Alphabetical Uniq Order by celllines, primary cells, adult tissues and fetal tissues"@en ;
+  rdfs:label "refexAlphabeticalUniqOrder"@en ;
+.
+:refexRefinedDescription
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :RefExEntry ;
+  rdfs:domain :RefExSample ;
+  rdfs:label "refex_refined_description"@en ;
+  skos:prefLabel "refex_refined_description"@en ;
+.
+:refexSample
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :RefExEntry ;
+  rdfs:label "refex sample"@en ;
+  rdfs:range :RefExSample ;
+  skos:prefLabel "refex sample"@en ;
+.
+:refexSampleCategory
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "refex sample category"@en ;
+  skos:prefLabel "refex sample category"@en ;
+.
+:refexTissueClass10
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :RefExSample ;
+  rdfs:label "refex tissue classification 10"@en ;
+  rdfs:range :AnatomicalClassification10 ;
+  skos:prefLabel "refex tissue classification 10"@en ;
+.
+:refexTissueClass40
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :RefExSample ;
+  rdfs:label "refex tissue classification 40"@en ;
+  rdfs:range :AnatomicalClassification40 ;
+  skos:prefLabel "refex tissue classification 40"@en ;
+.
+:sample
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "sample"@en ;
+  skos:prefLabel "sample"@en ;
+.
+:sampleReference
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :RefExEntry ;
+  rdfs:label "sample reference"@en ;
+  skos:prefLabel "sample reference"@en ;
+.
+:sex
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "sex"@en ;
+  skos:prefLabel "sex"@en ;
+.
+:v01_10
+  rdf:type :AnatomicalClassification10 ;
+  dct:identifier "v01_10"^^xsd:string ;
+  rdfs:label "Brain"@en ;
+  rdfs:label "脳"@ja ;
+  skos:definition "Brain"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0000955> ;
+  skos:prefLabel "Brain"@en ;
+.
+:v01_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v01_40"^^xsd:string ;
+  rdfs:label "Cerebrum"@en ;
+  rdfs:label "大脳"@ja ;
+  skos:definition "Cerebrum"@en ;
+  skos:prefLabel "Cerebrum"@en ;
+.
+:v02_10
+  rdf:type :AnatomicalClassification10 ;
+  dct:identifier "v02_10"^^xsd:string ;
+  rdfs:label "Blood"@en ;
+  rdfs:label "血"@ja ;
+  skos:definition "Blood"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0000178> ;
+  skos:prefLabel "Blood"@en ;
+.
+:v02_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v02_40"^^xsd:string ;
+  rdfs:label "Cerebellum"@en ;
+  rdfs:label "小脳"@ja ;
+  skos:definition "Cerebellum"@en ;
+  skos:prefLabel "Cerebellum"@en ;
+.
+:v03_10
+  rdf:type :AnatomicalClassification10 ;
+  dct:identifier "v03_10"^^xsd:string ;
+  rdfs:label "Connective"@en ;
+  rdfs:label "結"@ja ;
+  skos:definition "Connective"@en ;
+  skos:prefLabel "Connective"@en ;
+.
+:v03_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v03_40"^^xsd:string ;
+  rdfs:label "Brain stem"@en ;
+  rdfs:label "脳幹"@ja ;
+  skos:definition "Brain stem"@en ;
+  skos:prefLabel "Brain stem"@en ;
+.
+:v04_10
+  rdf:type :AnatomicalClassification10 ;
+  dct:identifier "v04_10"^^xsd:string ;
+  rdfs:label "Reproductive"@en ;
+  rdfs:label "殖"@ja ;
+  skos:definition "Reproductive"@en ;
+  skos:prefLabel "Reproductive"@en ;
+.
+:v04_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v04_40"^^xsd:string ;
+  rdfs:label "Corpus callosum/Glia"@en ;
+  rdfs:label "脳梁"@ja ;
+  skos:definition "Corpus callosum/Glia"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0002336> ;
+  skos:prefLabel "Corpus callosum/Glia"@en ;
+.
+:v05_10
+  rdf:type :AnatomicalClassification10 ;
+  dct:identifier "v05_10"^^xsd:string ;
+  rdfs:label "Muscular"@en ;
+  rdfs:label "筋"@ja ;
+  skos:definition "Muscular"@en ;
+  skos:prefLabel "Muscular"@en ;
+.
+:v05_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v05_40"^^xsd:string ;
+  rdfs:label "Pineal gland"@en ;
+  rdfs:label "松果体"@ja ;
+  skos:definition "Pineal gland"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0001905> ;
+  skos:prefLabel "Pineal gland"@en ;
+.
+:v06_10
+  rdf:type :AnatomicalClassification10 ;
+  dct:identifier "v06_10"^^xsd:string ;
+  rdfs:label "Alimentary"@en ;
+  rdfs:label "消"@ja ;
+  skos:definition "Alimentary"@en ;
+  skos:prefLabel "Alimentary"@en ;
+.
+:v06_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v06_40"^^xsd:string ;
+  rdfs:label "Peripheral nerve"@en ;
+  rdfs:label "末梢神経"@ja ;
+  skos:definition "Peripheral nerve"@en ;
+  skos:prefLabel "Peripheral nerve"@en ;
+.
+:v07_10
+  rdf:type :AnatomicalClassification10 ;
+  dct:identifier "v07_10"^^xsd:string ;
+  rdfs:label "Liver"@en ;
+  rdfs:label "肝"@ja ;
+  skos:definition "Liver"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0002107> ;
+  skos:prefLabel "Liver"@en ;
+.
+:v07_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v07_40"^^xsd:string ;
+  rdfs:label "Spine"@en ;
+  rdfs:label "脊柱"@ja ;
+  skos:definition "Spine"@en ;
+  skos:prefLabel "Spine"@en ;
+.
+:v08_10
+  rdf:type :AnatomicalClassification10 ;
+  dct:identifier "v08_10"^^xsd:string ;
+  rdfs:label "Lung"@en ;
+  rdfs:label "肺"@ja ;
+  skos:definition "Lung"@en ;
+  skos:prefLabel "Lung"@en ;
+.
+:v08_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v08_40"^^xsd:string ;
+  rdfs:label "Retina"@en ;
+  rdfs:label "網膜"@ja ;
+  skos:definition "Retina"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0000966> ;
+  skos:prefLabel "Retina"@en ;
+.
+:v09_10
+  rdf:type :AnatomicalClassification10 ;
+  dct:identifier "v09_10"^^xsd:string ;
+  rdfs:label "Urinary"@en ;
+  rdfs:label "腎"@ja ;
+  skos:definition "Urinary"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0002048> ;
+  skos:prefLabel "Urinary"@en ;
+.
+:v09_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v09_40"^^xsd:string ;
+  rdfs:label "Eye"@en ;
+  rdfs:label "目"@ja ;
+  skos:definition "Eye"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0002048> ;
+  skos:prefLabel "Eye"@en ;
+.
+:v10_10
+  rdf:type :AnatomicalClassification10 ;
+  dct:identifier "v10_10"^^xsd:string ;
+  rdfs:label "Endo/Exo-crine"@en ;
+  rdfs:label "泌"@ja ;
+  skos:definition "Endo/Exo-crine"@en ;
+  skos:prefLabel "Endo/Exo-crine"@en ;
+.
+:v10_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v10_40"^^xsd:string ;
+  rdfs:label "Artery/Aorta"@en ;
+  rdfs:label "動脈"@ja ;
+  skos:definition "Artery/Aorta"@en ;
+  skos:prefLabel "Eye"@en ;
+.
+:v11_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v11_40"^^xsd:string ;
+  rdfs:label "Vein"@en ;
+  rdfs:label "静脈"@ja ;
+  skos:definition "Vein"@en ;
+  skos:prefLabel "Vein"@en ;
+.
+:v12_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v12_40"^^xsd:string ;
+  rdfs:label "Lymphnode"@en ;
+  rdfs:label "リンパ節"@ja ;
+  skos:definition "Lymphnode"@en ;
+  skos:prefLabel "Lymphnode"@en ;
+.
+:v13_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v13_40"^^xsd:string ;
+  rdfs:label "Peripheral blood"@en ;
+  rdfs:label "末梢血"@ja ;
+  skos:definition "Peripheral blood"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0002037> ;
+  skos:prefLabel "Peripheral blood"@en ;
+.
+:v14_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v14_40"^^xsd:string ;
+  rdfs:label "Spleen"@en ;
+  rdfs:label "脾臓"@ja ;
+  skos:definition "Spleen"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0002037> ;
+  skos:prefLabel "Spleen"@en ;
+.
+:v15_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v15_40"^^xsd:string ;
+  rdfs:label "Thymus"@en ;
+  rdfs:label "胸腺"@ja ;
+  skos:definition "胸腺"@ja ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0002370> ;
+  skos:prefLabel "Thymus"@en ;
+.
+:v16_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v16_40"^^xsd:string ;
+  rdfs:label "Bone marrow"@en ;
+  rdfs:label "骨髄"@ja ;
+  skos:definition "Bone marrow"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0002371> ;
+  skos:prefLabel "Bone marrow"@en ;
+.
+:v17_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v17_40"^^xsd:string ;
+  rdfs:label "Adipose"@en ;
+  rdfs:label "脂肪"@ja ;
+  skos:definition "Adipose"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0001013> ;
+  skos:prefLabel "Adipose"@en ;
+.
+:v18_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v18_40"^^xsd:string ;
+  rdfs:label "Bone"@en ;
+  rdfs:label "骨"@ja ;
+  skos:definition "Bone"@en ;
+  skos:prefLabel "Bone"@en ;
+.
+:v19_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v19_40"^^xsd:string ;
+  rdfs:label "Skin"@en ;
+  rdfs:label "皮膚"@ja ;
+  skos:definition "Skin"@en ;
+  skos:prefLabel "Skin"@en ;
+.
+:v20_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v20_40"^^xsd:string ;
+  rdfs:label "Uterus"@en ;
+  rdfs:label "子宮"@ja ;
+  skos:definition "Uterus"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0000995> ;
+  skos:prefLabel "Uterus"@en ;
+.
+:v21_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v21_40"^^xsd:string ;
+  rdfs:label "Placenta"@en ;
+  rdfs:label "胎盤"@ja ;
+  skos:definition "Placenta"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0001987> ;
+  skos:prefLabel "Placenta"@en ;
+.
+:v22_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v22_40"^^xsd:string ;
+  rdfs:label "Prostate"@en ;
+  rdfs:label "胎盤"@ja ;
+  skos:definition "Prostate"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0002367> ;
+  skos:prefLabel "Placenta"@en ;
+.
+:v23_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v23_40"^^xsd:string ;
+  rdfs:label "Ovary"@en ;
+  rdfs:label "卵巣"@ja ;
+  skos:definition "Ovary"@en ;
+  skos:prefLabel "Ovary"@en ;
+.
+:v24_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v24_40"^^xsd:string ;
+  rdfs:label "Testis"@en ;
+  rdfs:label "精巣"@ja ;
+  skos:definition "Testis"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0000473> ;
+  skos:prefLabel "Testis"@en ;
+.
+:v25_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v25_40"^^xsd:string ;
+  rdfs:label "Heart"@en ;
+  rdfs:label "心臓"@ja ;
+  skos:definition "Heart"@en ;
+  skos:prefLabel "Heart"@en ;
+.
+:v26_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v26_40"^^xsd:string ;
+  rdfs:label "Muscle"@en ;
+  rdfs:label "骨格筋"@ja ;
+  skos:definition "Muscle"@en ;
+  skos:prefLabel "Muscle"@en ;
+.
+:v27_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v27_40"^^xsd:string ;
+  rdfs:label "Esophagus"@en ;
+  rdfs:label "食道"@ja ;
+  skos:definition "Esophagus"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0001043> ;
+  skos:prefLabel "Esophagus"@en ;
+.
+:v28_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v28_40"^^xsd:string ;
+  rdfs:label "Stomach"@en ;
+  rdfs:label "胃"@ja ;
+  skos:definition "Stomach"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0000945> ;
+  skos:prefLabel "Stomach"@en ;
+.
+:v29_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v29_40"^^xsd:string ;
+  rdfs:label "Intestine"@en ;
+  rdfs:label "腸"@ja ;
+  skos:definition "Intestine"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0000160> ;
+  skos:prefLabel "Intestine"@en ;
+.
+:v30_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v30_40"^^xsd:string ;
+  rdfs:label "Colon"@en ;
+  rdfs:label "結腸"@ja ;
+  skos:definition "Colon"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0001155> ;
+  skos:prefLabel "Colon"@en ;
+.
+:v31_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v31_40"^^xsd:string ;
+  rdfs:label "Liver/Hepato"@en ;
+  rdfs:label "肝臓"@ja ;
+  skos:definition "Liver/Hepato"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0002107> ;
+  skos:prefLabel "Liver/Hepato"@en ;
+.
+:v32_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v32_40"^^xsd:string ;
+  rdfs:label "Lung"@en ;
+  rdfs:label "肺"@ja ;
+  skos:definition "Lung"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0002108> ;
+  skos:prefLabel "Lung"@en ;
+.
+:v33_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v33_40"^^xsd:string ;
+  rdfs:label "Bladder"@en ;
+  rdfs:label "膀胱"@ja ;
+  skos:definition "Bladder"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0001255> ;
+  skos:prefLabel "Bladder"@en ;
+.
+:v34_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v34_40"^^xsd:string ;
+  rdfs:label "Kidney"@en ;
+  rdfs:label "腎臓"@ja ;
+  skos:definition "Kidney"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0002133> ;
+  skos:prefLabel "Kidney"@en ;
+.
+:v35_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v35_40"^^xsd:string ;
+  rdfs:label "Pituitary"@en ;
+  rdfs:label "下垂体"@ja ;
+  skos:definition "Pituitary"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0000007> ;
+  skos:prefLabel "Pituitary"@en ;
+.
+:v36_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v36_40"^^xsd:string ;
+  rdfs:label "Thyroid/Parathyroid"@en ;
+  rdfs:label "甲状腺"@ja ;
+  skos:definition "Thyroid/Parathyroid"@en ;
+  skos:prefLabel "Thyroid/Parathyroid"@en ;
+.
+:v37_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v37_40"^^xsd:string ;
+  rdfs:label "Adrenal gland"@en ;
+  rdfs:label "副腎"@ja ;
+  skos:definition "Adrenal gland"@en ;
+  skos:prefLabel "Adrenal gland"@en ;
+.
+:v38_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v38_40"^^xsd:string ;
+  rdfs:label "Pancreas"@en ;
+  rdfs:label "膵臓"@ja ;
+  skos:definition "Pancreas"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0001264> ;
+  skos:prefLabel "Pancreas"@en ;
+.
+:v39_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v39_40"^^xsd:string ;
+  rdfs:label "Breast"@en ;
+  rdfs:label "乳腺"@ja ;
+  skos:definition "Breast"@en ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/UBERON_0000310> ;
+  skos:prefLabel "Breast"@en ;
+.
+:v40_40
+  rdf:type :AnatomicalClassification40 ;
+  dct:identifier "v40_40"^^xsd:string ;
+  rdfs:label "Salivary"@en ;
+  rdfs:label "唾液腺"@ja ;
+  skos:definition "Salivary"@en ;
+  skos:prefLabel "Salivary"@en ;
+.
