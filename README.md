@@ -1,4 +1,4 @@
-# RefEx extended RDF
+# RefEx RDF extension
 
 Database Center for Life Science
 
@@ -16,7 +16,7 @@ https://refex.dbcls.jp/about.php
 
 https://github.com/dbcls/RefEx/tree/master/Rawdata_Processing
 
-## Creating extended RDF
+## Creating additional RDF
 
 ```
 ./tissue_specific.py data/RefEx_tissue_specific_genechip_human_GSE7307.tsv > rdf/RefEx_tissue_specific_genechip_human_GSE7307.ttl
