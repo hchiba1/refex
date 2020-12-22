@@ -2,7 +2,7 @@
 import sys
 import argparse
 
-parser = argparse.ArgumentParser(description='RDFize hOP')
+parser = argparse.ArgumentParser(description='RDFize RefEx')
 parser.add_argument('data', help='hOP data directory')
 args = parser.parse_args()
 
