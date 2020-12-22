@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-import sys
 import argparse
 
 parser = argparse.ArgumentParser(description='RDFize RefEx ID Relation')
-parser.add_argument('data', help='RDFize RefEx ID Relation')
+parser.add_argument('input_file', help='RefEx ID Relation file')
 args = parser.parse_args()
 
 print('@prefix ncbigene: <http://identifiers.org/ncbigene/>')
@@ -12,7 +11,7 @@ print('@prefix refseq: <http://identifiers.org/refseq/>')
 print('@prefix affy: <http://identifiers.org/affy.probeset/>')
 print()
 
-fp = open(args.data, 'r')
+fp = open(args.input_file, 'r')
 checked_header = False
 checked_relation = {}
 for line in fp:
