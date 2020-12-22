@@ -8,6 +8,7 @@ args = parser.parse_args()
 
 print('@prefix refexo: <http://purl.jp/bio/01/refexo#>')
 print('@prefix affy: <http://identifiers.org/affy.probeset/>')
+print('@prefix refseq: <http://identifiers.org/refseq/>')
 print()
 
 # def print_profile(group_no, label, prifoke, member):
@@ -20,17 +21,24 @@ print()
 #         print(' '.join(tissues))
 
 fp = open(args.data, 'r')
-read_header = False
+checked_header = False
+col_name = ''
+prefix_name = ''
 for line in fp:
     fields = line.strip().split('\t')
     probe = fields[0]
-    if not read_header:
-        read_header = True
+    if not checked_header:
+        checked_header = True
+        col_name = fields[0]
+        if col_name == 'Affymetrix_probesetID':
+            prefix_name = 'affy'
+        elif col_name == 'NCBI_RefSeqID':
+            prefix_name = 'refseq'
         continue
     for i in range(2, len(fields)):
         val = fields[i]
         tissue_no = f'refexo:v{i-1}_40'
         if val == '1':
-            print(f'affy:{probe} refexo:overExpressedIn ' + tissue_no + ' .')
+            print(f'{prefix_name}:{probe} refexo:overExpressedIn ' + tissue_no + ' .')
         elif val == '-1':
-            print(f'affy:{probe} refexo:underExpressedIn ' + tissue_no + ' .')
+            print(f'{prefix_name}:{probe} refexo:underExpressedIn ' + tissue_no + ' .')
