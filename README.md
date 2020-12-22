@@ -1,4 +1,4 @@
-# RefEx
+# RefEx RDF extension
 
 Database Center for Life Science
 
@@ -6,7 +6,7 @@ Attribution 4.0 International (CC BY 4.0)
 
 https://creativecommons.org/licenses/by/4.0/
 
-## Original Data
+## Original
 
 https://refex.dbcls.jp/download.php
 
@@ -16,7 +16,7 @@ https://refex.dbcls.jp/about.php?lang=ja
 
 https://github.com/dbcls/RefEx/tree/master/Rawdata_Processing
 
-## Create RDF
+## Created RDF
 
 ```
 ./tissue_specific.py data/RefEx_tissue_specific_genechip_human_GSE7307.tsv > rdf/RefEx_tissue_specific_genechip_human_GSE7307.ttl
