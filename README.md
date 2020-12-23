@@ -1,4 +1,4 @@
-# RefEx additional RDF
+# RefEx ver1 additional RDF
 
 Database Center for Life Science
 
