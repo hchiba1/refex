@@ -6053,9 +6053,9 @@ ncbigene:2597 refexo:refSeq refseq:NM_002046 .
 ncbigene:2597 refexo:affyProbeSet affy:212581_x_at .
 ncbigene:2597 refexo:affyProbeSet affy:213453_x_at .
 ncbigene:2597 refexo:affyProbeSet affy:217398_x_at .
-ncbigene:2597 refexo:affyProbeSet affy:AFFX-HUMGAPDH/M33197_3_at .
-ncbigene:2597 refexo:affyProbeSet affy:AFFX-HUMGAPDH/M33197_5_at .
-ncbigene:2597 refexo:affyProbeSet affy:AFFX-HUMGAPDH/M33197_M_at .
+ncbigene:2597 refexo:affyProbeSet <http://identifiers.org/affy.probeset/AFFX-HUMGAPDH/M33197_3_at> .
+ncbigene:2597 refexo:affyProbeSet <http://identifiers.org/affy.probeset/AFFX-HUMGAPDH/M33197_5_at> .
+ncbigene:2597 refexo:affyProbeSet <http://identifiers.org/affy.probeset/AFFX-HUMGAPDH/M33197_M_at> .
 ncbigene:2615 refexo:refSeq refseq:NM_001128922 .
 ncbigene:2615 refexo:affyProbeSet affy:203835_at .
 ncbigene:2615 refexo:refSeq refseq:NM_005512 .
@@ -15550,10 +15550,10 @@ ncbigene:6770 refexo:affyProbeSet affy:204548_at .
 ncbigene:6770 refexo:refSeq refseq:NM_001007243 .
 ncbigene:6772 refexo:refSeq refseq:NM_007315 .
 ncbigene:6772 refexo:affyProbeSet affy:200887_s_at .
-ncbigene:6772 refexo:affyProbeSet affy:AFFX-HUMISGF3A/M97935_3_at .
-ncbigene:6772 refexo:affyProbeSet affy:AFFX-HUMISGF3A/M97935_5_at .
-ncbigene:6772 refexo:affyProbeSet affy:AFFX-HUMISGF3A/M97935_MA_at .
-ncbigene:6772 refexo:affyProbeSet affy:AFFX-HUMISGF3A/M97935_MB_at .
+ncbigene:6772 refexo:affyProbeSet <http://identifiers.org/affy.probeset/AFFX-HUMISGF3A/M97935_3_at> .
+ncbigene:6772 refexo:affyProbeSet <http://identifiers.org/affy.probeset/AFFX-HUMISGF3A/M97935_5_at> .
+ncbigene:6772 refexo:affyProbeSet <http://identifiers.org/affy.probeset/AFFX-HUMISGF3A/M97935_MA_at> .
+ncbigene:6772 refexo:affyProbeSet <http://identifiers.org/affy.probeset/AFFX-HUMISGF3A/M97935_MB_at> .
 ncbigene:6772 refexo:refSeq refseq:NM_139266 .
 ncbigene:6772 refexo:affyProbeSet affy:209969_s_at .
 ncbigene:6773 refexo:refSeq refseq:NM_005419 .
