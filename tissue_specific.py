@@ -25,9 +25,12 @@ for line in fp:
         continue
     
     for i in range(2, len(fields)):
-        key = fields[0]
+        name = fields[0]
         val = fields[i]
+        uri = f'{prefix}:{name}'
+        if prefix == 'affy' and '/' in name:
+            uri = f'<http://identifiers.org/affy.probeset/{name}>';
         if val == '1':
-            print(f'{prefix}:{key} refexo:overExpressedIn refexo:v{i-1}_40 .')
+            print(f'{uri} refexo:overExpressedIn refexo:v{i-1}_40 .')
         elif val == '-1':
-            print(f'{prefix}:{key} refexo:underExpressedIn refexo:v{i-1}_40 .')
+            print(f'{uri} refexo:underExpressedIn refexo:v{i-1}_40 .')
