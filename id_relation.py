@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import sys
 import argparse
 
 parser = argparse.ArgumentParser(description='RDFize RefEx ID Relation')
@@ -29,5 +30,8 @@ for line in fp:
         checked_relation[(gene_id, refseq_id)] = True
         
     if affy_id and (gene_id, affy_id) not in checked_relation:
-        print(f'ncbigene:{gene_id} refexo:affyProbeSet affy:{affy_id} .')
+        if '/' in affy_id:
+            print(f'ncbigene:{gene_id} refexo:affyProbeSet <http://identifiers.org/affy.probeset/{affy_id}> .')
+        else:
+            print(f'ncbigene:{gene_id} refexo:affyProbeSet affy:{affy_id} .')
         checked_relation[(gene_id, affy_id)] = True
