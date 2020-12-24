@@ -1,0 +1,12 @@
+#!/usr/bin/env spang2
+# @endpoint orthodev
+# @option -ac
+SELECT *
+WHERE {
+  ncbigene:7849 ?xref ?s .
+  ?s ?pred ?tissue .
+  ?tissue skos:prefLabel ?label .
+  VALUES (?pred) { (refexo:overExpressedIn) (refexo:underExpressedIn) }
+  VALUES (?xref) { (refexo:affyProbeSet) (refexo:refSeq) }  
+}
+
