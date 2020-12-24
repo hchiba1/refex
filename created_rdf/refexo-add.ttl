@@ -1,0 +1,52 @@
+@prefix : <http://purl.jp/bio/01/refexo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:v01_40 rdfs:subClassOf :v01_10 .
+:v02_40 rdfs:subClassOf :v01_10 .
+:v03_40 rdfs:subClassOf :v01_10 .
+:v04_40 rdfs:subClassOf :v01_10 .
+:v05_40 rdfs:subClassOf :v01_10 .
+:v06_40 rdfs:subClassOf :v01_10 .
+:v07_40 rdfs:subClassOf :v01_10 .
+:v08_40 rdfs:subClassOf :v01_10 .
+:v09_40 rdfs:subClassOf :v01_10 .
+
+:v10_40 rdfs:subClassOf :v02_10 .
+:v11_40 rdfs:subClassOf :v02_10 .
+:v12_40 rdfs:subClassOf :v02_10 .
+:v13_40 rdfs:subClassOf :v02_10 .
+:v14_40 rdfs:subClassOf :v02_10 .
+:v15_40 rdfs:subClassOf :v02_10 .
+:v16_40 rdfs:subClassOf :v02_10 .
+
+:v17_40 rdfs:subClassOf :v03_10 .
+:v18_40 rdfs:subClassOf :v03_10 .
+:v19_40 rdfs:subClassOf :v03_10 .
+
+:v20_40 rdfs:subClassOf :v04_10 .
+:v21_40 rdfs:subClassOf :v04_10 .
+:v22_40 rdfs:subClassOf :v04_10 .
+:v23_40 rdfs:subClassOf :v04_10 .
+:v24_40 rdfs:subClassOf :v04_10 .
+
+:v25_40 rdfs:subClassOf :v05_10 .
+:v26_40 rdfs:subClassOf :v05_10 .
+
+:v27_40 rdfs:subClassOf :v06_10 .
+:v28_40 rdfs:subClassOf :v06_10 .
+:v29_40 rdfs:subClassOf :v06_10 .
+:v30_40 rdfs:subClassOf :v06_10 .
+
+:v31_40 rdfs:subClassOf :v07_10 .
+
+:v32_40 rdfs:subClassOf :v08_10 .
+
+:v33_40 rdfs:subClassOf :v09_10 .
+:v34_40 rdfs:subClassOf :v09_10 .
+
+:v35_40 rdfs:subClassOf :v10_10 .
+:v36_40 rdfs:subClassOf :v10_10 .
+:v37_40 rdfs:subClassOf :v10_10 .
+:v38_40 rdfs:subClassOf :v10_10 .
+:v39_40 rdfs:subClassOf :v10_10 .
+:v40_40 rdfs:subClassOf :v10_10 .
