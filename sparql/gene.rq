@@ -6,6 +6,6 @@ WHERE {
   ncbigene:7849 ?xref ?s .
   ?s ?pred ?tissue .
   ?tissue skos:prefLabel ?label .
-  VALUES (?pred) { (refexo:overExpressedIn) (refexo:underExpressedIn) }
+  VALUES (?pred) { (refexo:isPositivelySpecificTo) (refexo:isNegativelySpecificTo) }
   VALUES (?xref) { (refexo:affyProbeset) (refexo:refseq) }  
 }

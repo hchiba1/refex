@@ -1,13 +1,13 @@
 #!/usr/bin/env spang2
 # @endpoint orthodev
 # @option -ac --time
+# @param sign=Positive
 # @param idref=affyProbeset
-# @param level=over
 
 SELECT DISTINCT ?gene ?tissue_40 ?tissue_10_ja ?tissue_10_en ?tissue_40_ja ?tissue_40_en
 WHERE {
   ?gene refexo:{{idref}} ?seq .
-  ?seq refexo:{{level}}ExpressedIn ?tissue_40 .
+  ?seq refexo:is{{sign}}lySpecificTo ?tissue_40 .
   ?tissue_40 skos:prefLabel ?tissue_40_en .
   ?tissue_40 rdfs:label ?tissue_40_ja .
   FILTER(lang(?tissue_40_ja) = 'ja')
