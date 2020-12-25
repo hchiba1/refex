@@ -4,11 +4,15 @@
 # @param idref=affyProbeset
 # @param level=over
 
-SELECT DISTINCT ?gene ?tissue ?label_ja ?label
+SELECT DISTINCT ?gene ?tissue_40 ?tissue_10_ja ?tissue_10_en ?tissue_40_ja ?tissue_40_en
 WHERE {
   ?gene refexo:{{idref}} ?seq .
-  ?seq refexo:{{level}}ExpressedIn ?tissue .
-  ?tissue rdfs:label ?label_ja .
-  FILTER(lang(?label_ja) = 'ja')
-  ?tissue skos:prefLabel ?label .
+  ?seq refexo:{{level}}ExpressedIn ?tissue_40 .
+  ?tissue_40 skos:prefLabel ?tissue_40_en .
+  ?tissue_40 rdfs:label ?tissue_40_ja .
+  FILTER(lang(?tissue_40_ja) = 'ja')
+  ?tissue_40 rdfs:subClassOf ?tissue_10 .
+  ?tissue_10 skos:prefLabel ?tissue_10_en .
+  ?tissue_10 rdfs:label ?tissue_10_ja .
+  FILTER(lang(?tissue_10_ja) = 'ja')
 }
