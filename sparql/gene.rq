@@ -1,9 +1,11 @@
 #!/usr/bin/env spang2
 # @endpoint orthodev
 # @option -ac
+# @param geneid=7849
+
 SELECT *
 WHERE {
-  ncbigene:7849 ?xref ?s .
+  ncbigene:$geneid ?xref ?s .
   ?s ?pred ?tissue .
   ?tissue skos:prefLabel ?label .
   VALUES (?pred) { (refexo:isPositivelySpecificTo) (refexo:isNegativelySpecificTo) }
