@@ -16,7 +16,7 @@ https://refex.dbcls.jp/about.php
 
 https://github.com/dbcls/RefEx/tree/master/Rawdata_Processing
 
-## Created RDF
+## Additionally created RDF
 
 ```
 ./tissue_specific.py original_data/RefEx_tissue_specific_genechip_human_GSE7307.tsv > created_rdf/RefEx_tissue_specific_genechip_human_GSE7307.ttl
