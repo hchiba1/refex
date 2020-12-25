@@ -25,12 +25,12 @@ for line in fp:
     affy_id = fields[3]
     
     if refseq_id and (gene_id, refseq_id) not in checked_relation:
-        print(f'ncbigene:{gene_id} refexo:refSeq refseq:{refseq_id} .')
+        print(f'ncbigene:{gene_id} refexo:refseq refseq:{refseq_id} .')
         checked_relation[(gene_id, refseq_id)] = True
         
     if affy_id and (gene_id, affy_id) not in checked_relation:
         uri = f'affy:{affy_id}'
         if '/' in affy_id:
             uri = f'<http://identifiers.org/affy.probeset/{affy_id}>'
-        print(f'ncbigene:{gene_id} refexo:affyProbeSet {uri} .')
+        print(f'ncbigene:{gene_id} refexo:affyProbeset {uri} .')
         checked_relation[(gene_id, affy_id)] = True
