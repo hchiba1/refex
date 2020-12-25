@@ -29,8 +29,8 @@ for line in fp:
         checked_relation[(gene_id, refseq_id)] = True
         
     if affy_id and (gene_id, affy_id) not in checked_relation:
+        uri = f'affy:{affy_id}'
         if '/' in affy_id:
-            print(f'ncbigene:{gene_id} refexo:affyProbeSet <http://identifiers.org/affy.probeset/{affy_id}> .')
-        else:
-            print(f'ncbigene:{gene_id} refexo:affyProbeSet affy:{affy_id} .')
+            uri = f'<http://identifiers.org/affy.probeset/{affy_id}>'
+        print(f'ncbigene:{gene_id} refexo:affyProbeSet {uri} .')
         checked_relation[(gene_id, affy_id)] = True
