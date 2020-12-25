@@ -7,5 +7,5 @@ WHERE {
   ?s ?pred ?tissue .
   ?tissue skos:prefLabel ?label .
   VALUES (?pred) { (refexo:overExpressedIn) (refexo:underExpressedIn) }
-  VALUES (?xref) { (refexo:affyProbeSet) (refexo:refSeq) }  
+  VALUES (?xref) { (refexo:affyProbeset) (refexo:refseq) }  
 }
