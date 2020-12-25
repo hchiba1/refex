@@ -1,0 +1,15 @@
+#!/usr/bin/env spang2
+# @endpoint orthodev
+# @option -a --time
+# @param seqid=affyProbeSet
+# @param level=over
+
+# SELECT (COUNT(?gene) AS ?count)
+SELECT DISTINCT ?gene ?tissue ?label_ja ?label
+WHERE {
+  ?gene refexo:{{seqid}} ?seq .
+  ?seq refexo:{{level}}ExpressedIn ?tissue .
+  ?tissue rdfs:label ?label_ja .
+  FILTER(lang(?label_ja) = 'ja')
+  ?tissue skos:prefLabel ?label .
+}

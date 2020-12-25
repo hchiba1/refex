@@ -9,4 +9,3 @@ WHERE {
   VALUES (?pred) { (refexo:overExpressedIn) (refexo:underExpressedIn) }
   VALUES (?xref) { (refexo:affyProbeSet) (refexo:refSeq) }  
 }
-
