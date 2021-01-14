@@ -27,9 +27,12 @@ for line in fp:
         name = fields[0]
         val = fields[i]
         uri = f'{prefix}:{name}'
+        n = i -1
+        if n <= 9:
+            n = f'0{n}'
         if prefix == 'affy' and '/' in name:
             uri = f'<http://identifiers.org/affy.probeset/{name}>';
         if val == '1':
-            print(f'{uri} refexo:isPositivelySpecificTo refexo:v{i-1}_40 .')
+            print(f'{uri} refexo:isPositivelySpecificTo refexo:v{n}_40 .')
         elif val == '-1':
-            print(f'{uri} refexo:isNegativelySpecificTo refexo:v{i-1}_40 .')
+            print(f'{uri} refexo:isNegativelySpecificTo refexo:v{n}_40 .')
