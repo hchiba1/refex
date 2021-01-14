@@ -1,6 +1,6 @@
 #!/usr/bin/env spang2
 # @endpoint orthodev
-# @option -ac --time
+# @option -vac --time
 # @param sign=Positive
 # @param idref=affyProbeset
 
@@ -16,3 +16,4 @@ WHERE {
   ?tissue_10 rdfs:label ?tissue_10_ja .
   FILTER(lang(?tissue_10_ja) = 'ja')
 }
+ORDER BY ?gene ?tissue_40
