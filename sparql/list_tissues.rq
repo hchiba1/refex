@@ -1,0 +1,18 @@
+#!/usr/bin/env spang2
+# @endpoint orthodev
+# @option -ac
+
+SELECT ?tissue_10 ?tissue_40 ?tissue_10_ja ?tissue_40_ja ?tissue_10_en ?tissue_40_en
+WHERE {
+  ?tissue_40 a refexo:AnatomicalClassification40 .
+  ?tissue_40 rdfs:label ?tissue_40_ja .
+  ?tissue_40 rdfs:label ?tissue_40_en .
+  ?tissue_40 rdfs:subClassOf ?tissue_10 .
+  ?tissue_10 rdfs:label ?tissue_10_ja .
+  ?tissue_10 rdfs:label ?tissue_10_en .
+  FILTER(lang(?tissue_40_ja) = 'ja')
+  FILTER(lang(?tissue_40_en) = 'en')
+  FILTER(lang(?tissue_10_ja) = 'ja')
+  FILTER(lang(?tissue_10_en) = 'en')
+}
+ORDER BY ?tissue_40
