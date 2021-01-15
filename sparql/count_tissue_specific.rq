@@ -1,0 +1,9 @@
+#!/usr/bin/env spang2
+# @endpoint orthodev
+# @option -a
+
+SELECT ?tissue (COUNT(DISTINCT ?gene) AS ?count)
+WHERE {
+  ?gene refexo:affyProbeset/refexo:isPositivelySpecificTo ?tissue .
+}
+ORDER BY ?tissue

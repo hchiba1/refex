@@ -1,0 +1,8 @@
+#!/usr/bin/env spang2
+# @endpoint orthodev
+# @param tissue=refexo:v01_40
+
+SELECT *
+WHERE {
+  ?gene refexo:affyProbeset/refexo:isPositivelySpecificTo ?tissue .
+}

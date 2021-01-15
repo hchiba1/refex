@@ -1,0 +1,35 @@
+tissue_40     tissue_10_ja tissue_10_en   tissue_40_ja tissue_40_en         count
+refexo:v01_40 脳           Brain          大脳         Cerebrum             "609"^^xsd:integer
+refexo:v02_40 脳           Brain          小脳         Cerebellum           "688"^^xsd:integer
+refexo:v03_40 脳           Brain          脳幹         Brain stem           "545"^^xsd:integer
+refexo:v04_40 脳           Brain          脳梁         Corpus callosum/Glia "381"^^xsd:integer
+refexo:v06_40 脳           Brain          末梢神経     Peripheral nerve     "437"^^xsd:integer
+refexo:v07_40 脳           Brain          脊柱         Spine                "457"^^xsd:integer
+refexo:v10_40 血           Blood          動脈         Eye                  "136"^^xsd:integer
+refexo:v11_40 血           Blood          静脈         Vein                 "207"^^xsd:integer
+refexo:v12_40 血           Blood          リンパ節     Lymphnode            "351"^^xsd:integer
+refexo:v14_40 血           Blood          脾臓         Spleen               "494"^^xsd:integer
+refexo:v15_40 血           Blood          胸腺         Thymus               "1219"^^xsd:integer
+refexo:v16_40 血           Blood          骨髄         Bone marrow          "821"^^xsd:integer
+refexo:v17_40 結           Connective     脂肪         Adipose              "112"^^xsd:integer
+refexo:v19_40 結           Connective     皮膚         Skin                 "343"^^xsd:integer
+refexo:v20_40 殖           Reproductive   子宮         Uterus               "127"^^xsd:integer
+refexo:v21_40 殖           Reproductive   胎盤         Placenta             "695"^^xsd:integer
+refexo:v22_40 殖           Reproductive   胎盤         Placenta             "438"^^xsd:integer
+refexo:v23_40 殖           Reproductive   卵巣         Ovary                "184"^^xsd:integer
+refexo:v24_40 殖           Reproductive   精巣         Testis               "1955"^^xsd:integer
+refexo:v25_40 筋           Muscular       心臓         Heart                "205"^^xsd:integer
+refexo:v26_40 筋           Muscular       骨格筋       Muscle               "719"^^xsd:integer
+refexo:v27_40 消           Alimentary     食道         Esophagus            "546"^^xsd:integer
+refexo:v28_40 消           Alimentary     胃           Stomach              "137"^^xsd:integer
+refexo:v29_40 消           Alimentary     腸           Intestine            "256"^^xsd:integer
+refexo:v30_40 消           Alimentary     結腸         Colon                "304"^^xsd:integer
+refexo:v31_40 肝           Liver          肝臓         Liver/Hepato         "699"^^xsd:integer
+refexo:v32_40 肺           Lung           肺           Lung                 "384"^^xsd:integer
+refexo:v34_40 腎           Urinary        腎臓         Kidney               "467"^^xsd:integer
+refexo:v35_40 泌           Endo/Exo-crine 下垂体       Pituitary            "452"^^xsd:integer
+refexo:v36_40 泌           Endo/Exo-crine 甲状腺       Thyroid/Parathyroid  "218"^^xsd:integer
+refexo:v37_40 泌           Endo/Exo-crine 副腎         Adrenal gland        "264"^^xsd:integer
+refexo:v38_40 泌           Endo/Exo-crine 膵臓         Pancreas             "1029"^^xsd:integer
+refexo:v39_40 泌           Endo/Exo-crine 乳腺         Breast               "156"^^xsd:integer
+refexo:v40_40 泌           Endo/Exo-crine 唾液腺       Salivary             "355"^^xsd:integer

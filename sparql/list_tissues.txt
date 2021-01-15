@@ -1,0 +1,40 @@
+refexo:v01_10 refexo:v01_40 脳 大脳     Brain          Cerebrum
+refexo:v01_10 refexo:v02_40 脳 小脳     Brain          Cerebellum
+refexo:v01_10 refexo:v03_40 脳 脳幹     Brain          Brain stem
+refexo:v01_10 refexo:v04_40 脳 脳梁     Brain          Corpus callosum/Glia
+refexo:v01_10 refexo:v05_40 脳 松果体   Brain          Pineal gland
+refexo:v01_10 refexo:v06_40 脳 末梢神経 Brain          Peripheral nerve
+refexo:v01_10 refexo:v07_40 脳 脊柱     Brain          Spine
+refexo:v01_10 refexo:v08_40 脳 網膜     Brain          Retina
+refexo:v01_10 refexo:v09_40 脳 目       Brain          Eye
+refexo:v02_10 refexo:v10_40 血 動脈     Blood          Artery/Aorta
+refexo:v02_10 refexo:v11_40 血 静脈     Blood          Vein
+refexo:v02_10 refexo:v12_40 血 リンパ節 Blood          Lymphnode
+refexo:v02_10 refexo:v13_40 血 末梢血   Blood          Peripheral blood
+refexo:v02_10 refexo:v14_40 血 脾臓     Blood          Spleen
+refexo:v02_10 refexo:v15_40 血 胸腺     Blood          Thymus
+refexo:v02_10 refexo:v16_40 血 骨髄     Blood          Bone marrow
+refexo:v03_10 refexo:v17_40 結 脂肪     Connective     Adipose
+refexo:v03_10 refexo:v18_40 結 骨       Connective     Bone
+refexo:v03_10 refexo:v19_40 結 皮膚     Connective     Skin
+refexo:v04_10 refexo:v20_40 殖 子宮     Reproductive   Uterus
+refexo:v04_10 refexo:v21_40 殖 胎盤     Reproductive   Placenta
+refexo:v04_10 refexo:v22_40 殖 胎盤     Reproductive   Prostate
+refexo:v04_10 refexo:v23_40 殖 卵巣     Reproductive   Ovary
+refexo:v04_10 refexo:v24_40 殖 精巣     Reproductive   Testis
+refexo:v05_10 refexo:v25_40 筋 心臓     Muscular       Heart
+refexo:v05_10 refexo:v26_40 筋 骨格筋   Muscular       Muscle
+refexo:v06_10 refexo:v27_40 消 食道     Alimentary     Esophagus
+refexo:v06_10 refexo:v28_40 消 胃       Alimentary     Stomach
+refexo:v06_10 refexo:v29_40 消 腸       Alimentary     Intestine
+refexo:v06_10 refexo:v30_40 消 結腸     Alimentary     Colon
+refexo:v07_10 refexo:v31_40 肝 肝臓     Liver          Liver/Hepato
+refexo:v08_10 refexo:v32_40 肺 肺       Lung           Lung
+refexo:v09_10 refexo:v33_40 腎 膀胱     Urinary        Bladder
+refexo:v09_10 refexo:v34_40 腎 腎臓     Urinary        Kidney
+refexo:v10_10 refexo:v35_40 泌 下垂体   Endo/Exo-crine Pituitary
+refexo:v10_10 refexo:v36_40 泌 甲状腺   Endo/Exo-crine Thyroid/Parathyroid
+refexo:v10_10 refexo:v37_40 泌 副腎     Endo/Exo-crine Adrenal gland
+refexo:v10_10 refexo:v38_40 泌 膵臓     Endo/Exo-crine Pancreas
+refexo:v10_10 refexo:v39_40 泌 乳腺     Endo/Exo-crine Breast
+refexo:v10_10 refexo:v40_40 泌 唾液腺   Endo/Exo-crine Salivary
