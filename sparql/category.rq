@@ -1,5 +1,5 @@
 #!/usr/bin/env spang2
-# @endpoint orthodev
+# @endpoint https://orth.dbcls.jp/sparql-dev
 # @option -vac --time
 # @param sign=Positive
 # @param idref=affyProbeset
