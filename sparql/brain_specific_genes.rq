@@ -1,0 +1,13 @@
+#!/usr/bin/env spang2
+# @endpoint orthodev
+# @option -ac --time
+# @param sign=Positive
+# @param idref=affyProbeset
+
+SELECT DISTINCT ?gene
+WHERE {
+  ?gene refexo:{{idref}} ?seq .
+  ?seq refexo:is{{sign}}lySpecificTo ?tissue_40 .
+  ?tissue_40 rdfs:subClassOf refexo:v01_10 .
+}
+ORDER BY ?gene
