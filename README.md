@@ -30,7 +30,7 @@ https://github.com/dbcls/RefEx/tree/master/Rawdata_Processing
 ./id_relation.py original_data/RefEx_ID_Relation_human.tsv > created_rdf/RefEx_ID_Relation_human.ttl
 ```
 
-### Example SPARQL
+## Example SPARQL
 
 Test endpoint: 
 https://orth.dbcls.jp/sparql-dev
