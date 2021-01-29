@@ -1,0 +1,9 @@
+#!/usr/bin/env spang2
+# @endpoint orthodev
+# @option -a --time
+
+SELECT DISTINCT ?gene
+WHERE {
+  ?gene refexo:affyProbeset ?affy .
+  ?affy refexo:isPositivelySpecificTo refexo:v32_40 .
+}
