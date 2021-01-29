@@ -29,3 +29,18 @@ https://github.com/dbcls/RefEx/tree/master/Rawdata_Processing
 ```
 ./id_relation.py original_data/RefEx_ID_Relation_human.tsv > created_rdf/RefEx_ID_Relation_human.ttl
 ```
+
+### Example SPARQL
+
+Test endpoint: 
+https://orth.dbcls.jp/sparql-dev
+
+```
+PREFIX refexo: <http://purl.jp/bio/01/refexo#>
+
+SELECT DISTINCT ?gene
+WHERE {
+  ?gene refexo:affyProbeset ?affy .
+  ?affy refexo:isPositivelySpecificTo refexo:v32_40 .
+}
+```
