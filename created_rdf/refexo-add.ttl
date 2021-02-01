@@ -1,6 +1,14 @@
 @prefix : <http://purl.jp/bio/01/refexo#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
+:affyProbeset a owl:ObjectProperty .
+:refseq a owl:ObjectProperty .
+
+:isPositivelySpecificTo a owl:ObjectProperty ;
+  rdfs:range :AnatomicalClassification .
+:isNegativelySpecificTo a owl:ObjectProperty ;
+  rdfs:range :AnatomicalClassification .
+
 :v01_40 rdfs:subClassOf :v01_10 .
 :v02_40 rdfs:subClassOf :v01_10 .
 :v03_40 rdfs:subClassOf :v01_10 .
