@@ -1,0 +1,12 @@
+tissue_40     tissue_10_ja tissue_10_en tissue_40_ja tissue_40_en         count
+refexo:v01_40 脳           Brain        大脳         Cerebrum             "434"^^xsd:integer
+refexo:v02_40 脳           Brain        小脳         Cerebellum           "453"^^xsd:integer
+refexo:v03_40 脳           Brain        脳幹         Brain stem           "384"^^xsd:integer
+refexo:v04_40 脳           Brain        脳梁         Corpus callosum/Glia "231"^^xsd:integer
+refexo:v06_40 脳           Brain        末梢神経     Peripheral nerve     "317"^^xsd:integer
+refexo:v07_40 脳           Brain        脊柱         Spine                "322"^^xsd:integer
+refexo:v12_40 血           Blood        リンパ節     Lymphnode            "215"^^xsd:integer
+refexo:v16_40 血           Blood        骨髄         Bone marrow          "396"^^xsd:integer
+refexo:v17_40 結           Connective   脂肪         Adipose              "74"^^xsd:integer
+refexo:v27_40 消           Alimentary   食道         Esophagus            "324"^^xsd:integer
+refexo:v29_40 消           Alimentary   腸           Intestine            "155"^^xsd:integer
