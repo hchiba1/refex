@@ -1,0 +1,65 @@
+#!/usr/bin/env spang2
+# @endpoint orthodev
+# @option -ac
+
+SELECT ?v40 ?v40_label ?count
+WHERE {
+  # ?v40 skos:prefLabel ?v40_label .
+  ?v40 rdfs:label ?v40_label .
+  FILTER (lang(?v40_label) = 'ja')
+  VALUES ?v40 {
+    refexo:v01_40
+    refexo:v02_40
+    refexo:v03_40
+    refexo:v04_40
+    refexo:v05_40
+    refexo:v06_40
+    refexo:v07_40
+    refexo:v08_40
+    refexo:v09_40
+    refexo:v10_40
+    refexo:v11_40
+    refexo:v12_40
+    refexo:v13_40
+    refexo:v14_40
+    refexo:v15_40
+    refexo:v16_40
+    refexo:v17_40
+    refexo:v18_40
+    refexo:v19_40
+    refexo:v20_40
+    refexo:v21_40
+    refexo:v22_40
+    refexo:v23_40
+    refexo:v24_40
+    refexo:v25_40
+    refexo:v26_40
+    refexo:v27_40
+    refexo:v28_40
+    refexo:v29_40
+    refexo:v30_40
+    refexo:v31_40
+    refexo:v32_40
+    refexo:v33_40
+    refexo:v34_40
+    refexo:v35_40
+    refexo:v36_40
+    refexo:v37_40
+    refexo:v38_40
+    refexo:v39_40
+    refexo:v40_40
+  }
+  {
+    SELECT ?v40 (COUNT(?gene) AS ?count)
+    WHERE {
+      {
+        SELECT DISTINCT ?v40 ?gene (GROUP_CONCAT(DISTINCT ?tissue; separator=",") AS ?tissues)
+        WHERE {
+          ?gene refexo:affyProbeset/refexo:isPositivelySpecificTo ?v40 , ?tissue .
+        }
+      }
+      FILTER (?tissues = str(?v40))
+    }
+  }
+}
+ORDER BY ?v40
