@@ -1,13 +1,15 @@
 #!/usr/bin/env spang2
 # @endpoint orthodev
 # @option -a
+# @param no=v24
+
 SELECT ?gene
 WHERE {
   {
     SELECT DISTINCT ?gene (GROUP_CONCAT(DISTINCT ?tissue; separator=",") AS ?tissues)
     WHERE {
-      ?gene refexo:affyProbeset/refexo:isPositivelySpecificTo refexo:v24_40 , ?tissue .
+      ?gene refexo:affyProbeset/refexo:isPositivelySpecificTo refexo:{{no}}_40 , ?tissue .
     }
   }
-  FILTER (?tissues = "http://purl.jp/bio/01/refexo#v24_40")
+  FILTER (?tissues = "http://purl.jp/bio/01/refexo#{{no}}_40")
 }
