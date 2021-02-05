@@ -1,7 +1,7 @@
 #!/usr/bin/env spang2
 # @endpoint orthodev
 # @option -vac
-# @param specific_tissue=refexo:v24_40
+# @param specific_tissue=v24_40
 
 PREFIX orth: <http://purl.org/net/orth#>
 PREFIX homologene: <https://ncbi.nlm.nih.gov/homologene/>
@@ -9,7 +9,7 @@ PREFIX taxid: <http://identifiers.org/taxonomy/>
 PREFIX hop: <http://purl.org/net/orthordf/hOP/ontology#>
 PREFIX refexo: <http://purl.jp/bio/01/refexo#>
 
-SELECT ?branch_time_mya (COUNT(?human_gene) AS ?count)
+SELECT ?branch_time_mya (COUNT(?human_gene) AS ?gene_count)
 WHERE {
   {
     SELECT ?human_gene (max(?time) as ?branch_time_mya)
@@ -22,10 +22,10 @@ WHERE {
       {
         SELECT DISTINCT ?human_gene (GROUP_CONCAT(DISTINCT ?tissue; separator=",") AS ?tissues)
         WHERE {
-          ?human_gene refexo:affyProbeset/refexo:isPositivelySpecificTo refexo:v24_40 , ?tissue .
+          ?human_gene refexo:affyProbeset/refexo:isPositivelySpecificTo refexo:{{specific_tissue}} , ?tissue .
         }
       }
-      FILTER (?tissues = str(refexo:v24_40))
+      FILTER (?tissues = str(refexo:{{specific_tissue}}))
     }
   }
 }
