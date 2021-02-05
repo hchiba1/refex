@@ -5,6 +5,9 @@
 
 PREFIX orth: <http://purl.org/net/orth#>
 PREFIX homologene: <https://ncbi.nlm.nih.gov/homologene/>
+PREFIX taxid: <http://identifiers.org/taxonomy/>
+PREFIX hop: <http://purl.org/net/orthordf/hOP/ontology#>
+PREFIX refexo: <http://purl.jp/bio/01/refexo#>
 
 SELECT ?branch_time_mya (COUNT(?human_gene) AS ?count)
 WHERE {
@@ -19,10 +22,10 @@ WHERE {
       {
         SELECT DISTINCT ?human_gene (GROUP_CONCAT(DISTINCT ?tissue; separator=",") AS ?tissues)
         WHERE {
-          ?human_gene refexo:affyProbeset/refexo:isPositivelySpecificTo {{specific_tissue}} , ?tissue .
+          ?human_gene refexo:affyProbeset/refexo:isPositivelySpecificTo refexo:v24_40 , ?tissue .
         }
       }
-      FILTER (?tissues = str({{specific_tissue}}))
+      FILTER (?tissues = str(refexo:v24_40))
     }
   }
 }
