@@ -10,6 +10,6 @@ group1=$2
 group2=$3
 overlap=$4
 
-less_enriched=$(Rscript --vanilla -e "phyper($overlap, $group1, $total - $group1, $group2)" | sed -e 's/^\[1\] //')
+less_enriched=$(Rscript --vanilla -e "phyper($overlap, $group1, $total - $group1, $group2, lower.tail=T)" | sed -e 's/^\[1\] //')
 more_enriched=$(Rscript --vanilla -e "phyper($overlap - 1, $group1, $total - $group1, $group2, lower.tail=F)" | sed -e 's/^\[1\] //')
 echo $less_enriched $more_enriched
