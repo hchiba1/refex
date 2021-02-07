@@ -6,10 +6,10 @@ if (($# != 4)); then
 fi
 
 total=$1
-sample1=$2
-sample2=$3
+group1=$2
+group2=$3
 overlap=$4
 
-less=$(Rscript --vanilla -e "phyper($overlap, $sample1, $total - $sample1, $sample2)" | sed -e 's/^\[1\] //')
-larger=$(Rscript --vanilla -e "phyper($overlap - 1, $sample1, $total - $sample1, $sample2, lower.tail=F)" | sed -e 's/^\[1\] //')
-echo $less $larger
+less_enriched=$(Rscript --vanilla -e "phyper($overlap, $group1, $total - $group1, $group2)" | sed -e 's/^\[1\] //')
+more_enriched=$(Rscript --vanilla -e "phyper($overlap - 1, $group1, $total - $group1, $group2, lower.tail=F)" | sed -e 's/^\[1\] //')
+echo $less_enriched $more_enriched
