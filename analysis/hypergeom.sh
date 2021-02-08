@@ -2,6 +2,7 @@
 
 if (($# != 4)); then
     echo "Usage: $0 total group1 group2 overlap"
+    echo "output P-less_enriched P-more_enriched"
     exit 1
 fi
 
