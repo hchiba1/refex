@@ -3,7 +3,7 @@ import sys
 from scipy.stats import hypergeom
 
 if (len(sys.argv) != 5):
-    print("Usage: ./hypergeom.py total sample1 sample2 overlap")
+    print("Usage: ./hypergeom.py total group1 group2 overlap")
     sys.exit(1)
 
 total = int(sys.argv[1])
