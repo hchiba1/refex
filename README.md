@@ -44,3 +44,26 @@ WHERE {
   ?affy refexo:isPositivelySpecificTo refexo:v32_40 .
 }
 ```
+
+## Analysis
+
+Significance test using hypergeometric distribution
+
+Using R phyper() function
+```
+$ ./analysis/hypergeom.sh
+Usage: ./analysis/hypergeom.sh total group1 group2 overlap
+$ ./analysis/hypergeom.sh 19129 200 580 22
+1 1.958805e-07
+```
+* total gene count: 19129
+* liver-specific genes: 200
+* conserved up to fungi: 580
+* P[overlap<=22] = 1
+* P[overlap>=22] = 1.958805e-07
+
+Using SciPy stats hypergeom.cdf() or hypergeom.sf()
+```
+$ ./analysis/hypergeom.py 19129 200 580 22
+0.999999954557 1.95880490138e-07
+```
