@@ -1,9 +1,0 @@
-#!/usr/bin/env spang2
-# @endpoint orthodev
-# @option -a
-
-SELECT DISTINCT ?gene
-WHERE {
-  ?gene refexo:affyProbeset ?seq .
-  ?seq refexo:isPositivelySpecificTo refexo:v24_40 .
-}
