@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if (($# != 4)); then
-    echo "Usaga: $0 total sample1 sample2 overlap"
+    echo "Usage: $0 total group1 group2 overlap"
     exit 1
 fi
 
