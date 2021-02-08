@@ -5,12 +5,12 @@
 PREFIX refexo: <http://purl.jp/bio/01/refexo#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-SELECT ?specific_tissue ?label ?count
+SELECT ?specific_tissue ?label ?gene_count
 WHERE {
   ?specific_tissue a refexo:AnatomicalClassification40 ;
      skos:prefLabel ?label .
   {
-    SELECT ?specific_tissue (COUNT(?gene) AS ?count)
+    SELECT ?specific_tissue (COUNT(?gene) AS ?gene_count)
     WHERE {
       {
         SELECT DISTINCT ?specific_tissue ?gene (GROUP_CONCAT(DISTINCT ?tissue; separator=",") AS ?tissues)
