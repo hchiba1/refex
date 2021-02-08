@@ -1,0 +1,34 @@
+refexo:v01_40 Cerebrum             "26"^^xsd:integer
+refexo:v02_40 Cerebellum           "108"^^xsd:integer
+refexo:v03_40 Brain stem           "13"^^xsd:integer
+refexo:v04_40 Corpus callosum/Glia "41"^^xsd:integer
+refexo:v06_40 Peripheral nerve     "43"^^xsd:integer
+refexo:v07_40 Spine                "30"^^xsd:integer
+refexo:v10_40 Eye                  "8"^^xsd:integer
+refexo:v11_40 Vein                 "24"^^xsd:integer
+refexo:v12_40 Lymphnode            "13"^^xsd:integer
+refexo:v14_40 Spleen               "68"^^xsd:integer
+refexo:v15_40 Thymus               "350"^^xsd:integer
+refexo:v16_40 Bone marrow          "110"^^xsd:integer
+refexo:v17_40 Adipose              "18"^^xsd:integer
+refexo:v19_40 Skin                 "36"^^xsd:integer
+refexo:v20_40 Uterus               "15"^^xsd:integer
+refexo:v21_40 Placenta             "203"^^xsd:integer
+refexo:v22_40 Placenta             "88"^^xsd:integer
+refexo:v23_40 Ovary                "16"^^xsd:integer
+refexo:v24_40 Testis               "816"^^xsd:integer
+refexo:v25_40 Heart                "11"^^xsd:integer
+refexo:v26_40 Muscle               "265"^^xsd:integer
+refexo:v27_40 Esophagus            "104"^^xsd:integer
+refexo:v28_40 Stomach              "9"^^xsd:integer
+refexo:v29_40 Intestine            "8"^^xsd:integer
+refexo:v30_40 Colon                "35"^^xsd:integer
+refexo:v31_40 Liver/Hepato         "200"^^xsd:integer
+refexo:v32_40 Lung                 "58"^^xsd:integer
+refexo:v34_40 Kidney               "60"^^xsd:integer
+refexo:v35_40 Pituitary            "83"^^xsd:integer
+refexo:v36_40 Thyroid/Parathyroid  "39"^^xsd:integer
+refexo:v37_40 Adrenal gland        "64"^^xsd:integer
+refexo:v38_40 Pancreas             "292"^^xsd:integer
+refexo:v39_40 Breast               "1"^^xsd:integer
+refexo:v40_40 Salivary             "68"^^xsd:integer
