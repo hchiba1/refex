@@ -45,7 +45,7 @@ WHERE {
 }
 ```
 
-## Analysis
+## Statistical analysis
 
 Significance test using hypergeometric distribution
 
