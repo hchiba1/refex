@@ -61,8 +61,8 @@ $ ./analysis/hypergeom.sh 19129 200 580 22
 * total gene count: 19129
 * liver-specific genes: 200
 * conserved up to fungi: 580
-* P[overlap<=22] = 1
-* P[overlap>=22] = 1.958805e-07
+* _P_[ overlap <= 22 ] = 1
+* _P_[ overlap >= 22 ] = 1.958805e-07
 
 Using SciPy stats hypergeom.cdf() or hypergeom.sf()
 ```
