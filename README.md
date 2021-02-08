@@ -47,7 +47,7 @@ WHERE {
 
 ## Statistical analysis
 
-Significance test using hypergeometric distribution
+### Significance test using hypergeometric distribution
 
 Using R phyper() function
 ```
