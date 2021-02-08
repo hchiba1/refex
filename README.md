@@ -53,6 +53,8 @@ Using R phyper() function
 ```
 $ ./analysis/hypergeom.sh
 Usage: ./analysis/hypergeom.sh total group1 group2 overlap
+```
+```
 $ ./analysis/hypergeom.sh 19129 200 580 22
 1 1.958805e-07
 ```
