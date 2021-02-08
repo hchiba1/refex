@@ -1,0 +1,12 @@
+branch_time_mya       gene_count
+"0"^^xsd:integer      "9"^^xsd:integer
+"6.6"^^xsd:decimal    "17"^^xsd:integer
+"29.1"^^xsd:decimal   "15"^^xsd:integer
+"90.9"^^xsd:decimal   "7"^^xsd:integer
+"97.5"^^xsd:decimal   "114"^^xsd:integer
+"320.5"^^xsd:decimal  "20"^^xsd:integer
+"355.7"^^xsd:decimal  "39"^^xsd:integer
+"429.6"^^xsd:decimal  "217"^^xsd:integer
+"847"^^xsd:integer    "149"^^xsd:integer
+"1302.5"^^xsd:decimal "25"^^xsd:integer
+"1513.9"^^xsd:decimal "186"^^xsd:integer
