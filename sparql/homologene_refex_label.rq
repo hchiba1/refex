@@ -3,6 +3,7 @@
 # @option -vac --time
 # @param specific_tissue=v24_40
 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX orth: <http://purl.org/net/orth#>
 PREFIX homologene: <https://ncbi.nlm.nih.gov/homologene/>
 PREFIX taxid: <http://identifiers.org/taxonomy/>
