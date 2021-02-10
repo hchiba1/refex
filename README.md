@@ -49,7 +49,7 @@ WHERE {
 
 ### Significance test using hypergeometric distribution
 
-Using R phyper() function
+Using R `phyper()` function
 ```
 $ ./analysis/hypergeom.sh
 Usage: ./analysis/hypergeom.sh total group1 group2 overlap
@@ -65,7 +65,7 @@ $ ./analysis/hypergeom.sh 19129 200 580 22
 * _P_[ overlap <= 22 ] = 1
 * _P_[ overlap >= 22 ] = 1.958805e-07
 
-Using SciPy stats hypergeom.cdf() or hypergeom.sf()
+Using SciPy stats `hypergeom.cdf()` or `hypergeom.sf()`
 ```
 $ ./analysis/hypergeom.py 19129 200 580 22
 0.999999954557 1.95880490138e-07
