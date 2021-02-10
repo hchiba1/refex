@@ -1,0 +1,9 @@
+#!/usr/bin/env spang2
+# @option -a
+# @endpoint https://orth.dbcls.jp/sparql-dev
+
+SELECT DISTINCT ?gene (GROUP_CONCAT(DISTINCT ?affy; separator=",") AS ?probesets)
+WHERE {
+  ?gene refexo:affyProbeset ?affy
+}
+ORDER BY ?gene

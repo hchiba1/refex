@@ -1,0 +1,8 @@
+#!/usr/bin/env spang2
+# @endpoint https://orth.dbcls.jp/sparql-dev
+
+SELECT DISTINCT ?gene ?affy
+WHERE {
+  ?gene refexo:affyProbeset ?affy
+}
+ORDER BY ?gene ?affy

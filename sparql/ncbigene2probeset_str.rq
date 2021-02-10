@@ -1,0 +1,9 @@
+#!/usr/bin/env spang2
+# @endpoint https://orth.dbcls.jp/sparql-dev
+
+SELECT ?gene_id ?affy_id
+WHERE {
+  ?gene refexo:affyProbeset ?affy
+  BIND(REPLACE(str(?gene), 'http://identifiers.org/ncbigene/', '') AS ?gene_id)
+  BIND(REPLACE(str(?affy), 'http://identifiers.org/affy.probeset/', '') AS ?affy_id)
+}
