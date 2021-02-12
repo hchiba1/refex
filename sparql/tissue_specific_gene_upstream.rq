@@ -1,5 +1,5 @@
 #!/usr/bin/env spang2
-# @endpoint orthodev
+# @endpoint https://orth.dbcls.jp/sparql-dev
 # @option -a
 # @param specific_tissue=v24_40
 
