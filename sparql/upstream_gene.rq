@@ -1,0 +1,10 @@
+#!/usr/bin/env spang2
+# @endpoint orthodev
+# @option -a
+# @input (ncbigene:9880)
+
+SELECT *
+WHERE {
+  VALUES (?gene) { {{INPUT}} }  
+  ?upstream refexo:ensembl/obo:RO_0002428/refexo:ncbigene ?gene .
+}
