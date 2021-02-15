@@ -1,0 +1,8 @@
+#!/usr/bin/env spang2
+# @endpoint https://orth.dbcls.jp/sparql-dev
+# @option -a
+
+SELECT DISTINCT ?upstream
+WHERE {
+  ?upstream refexo:ensembl/obo:RO_0002428/refexo:ncbigene ?gene .
+}
