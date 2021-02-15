@@ -6,7 +6,7 @@
 PREFIX orth: <http://purl.org/net/orth#>
 PREFIX homologene: <https://ncbi.nlm.nih.gov/homologene/>
 
-SELECT ?human_gene (max(?time) as ?max)
+SELECT ?human_gene (max(?time) as ?branch_time_mya)
 WHERE {
   ?grp orth:inDataset homologene: ;
       orth:hasHomologousMember ?human_gene, ?gene .
@@ -21,4 +21,4 @@ WHERE {
   }
   FILTER (?tissues = str({{specific_tissue}}))
 }
-ORDER BY ?max
+ORDER BY ?branch_time_mya
