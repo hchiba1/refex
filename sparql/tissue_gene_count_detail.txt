@@ -15,7 +15,7 @@ refexo:v17_40 結           Connective     脂肪         Adipose              "
 refexo:v19_40 結           Connective     皮膚         Skin                 "343"^^xsd:integer
 refexo:v20_40 殖           Reproductive   子宮         Uterus               "127"^^xsd:integer
 refexo:v21_40 殖           Reproductive   胎盤         Placenta             "695"^^xsd:integer
-refexo:v22_40 殖           Reproductive   胎盤         Placenta             "438"^^xsd:integer
+refexo:v22_40 殖           Reproductive   前立腺       Prostate             "438"^^xsd:integer
 refexo:v23_40 殖           Reproductive   卵巣         Ovary                "184"^^xsd:integer
 refexo:v24_40 殖           Reproductive   精巣         Testis               "1955"^^xsd:integer
 refexo:v25_40 筋           Muscular       心臓         Heart                "205"^^xsd:integer

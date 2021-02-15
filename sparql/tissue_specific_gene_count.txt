@@ -14,7 +14,7 @@ refexo:v17_40 Adipose              "18"^^xsd:integer
 refexo:v19_40 Skin                 "36"^^xsd:integer
 refexo:v20_40 Uterus               "15"^^xsd:integer
 refexo:v21_40 Placenta             "203"^^xsd:integer
-refexo:v22_40 Placenta             "88"^^xsd:integer
+refexo:v22_40 Prostate             "88"^^xsd:integer
 refexo:v23_40 Ovary                "16"^^xsd:integer
 refexo:v24_40 Testis               "816"^^xsd:integer
 refexo:v25_40 Heart                "11"^^xsd:integer
