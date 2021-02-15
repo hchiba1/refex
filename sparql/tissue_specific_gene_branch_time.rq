@@ -1,7 +1,7 @@
 #!/usr/bin/env spang2
 # @endpoint orthodev
 # @option -a
-# @param specific_tissue=refexo:v24_40
+# @param specific_tissue=v24_40
 
 PREFIX orth: <http://purl.org/net/orth#>
 PREFIX homologene: <https://ncbi.nlm.nih.gov/homologene/>
@@ -16,9 +16,9 @@ WHERE {
   {
     SELECT DISTINCT ?human_gene (GROUP_CONCAT(DISTINCT ?tissue; separator=",") AS ?tissues)
     WHERE {
-      ?human_gene refexo:affyProbeset/refexo:isPositivelySpecificTo {{specific_tissue}} , ?tissue .
+      ?human_gene refexo:affyProbeset/refexo:isPositivelySpecificTo refexo:{{specific_tissue}} , ?tissue .
     }
   }
-  FILTER (?tissues = str({{specific_tissue}}))
+  FILTER (?tissues = str(refexo:{{specific_tissue}}))
 }
 ORDER BY ?branch_time_mya
