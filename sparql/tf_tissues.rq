@@ -1,0 +1,14 @@
+#!/usr/bin/env spang2
+# @endpoint orthodev
+# @option -ac --time
+
+PREFIX refexo: <http://purl.jp/bio/01/refexo#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?gene (GROUP_CONCAT(DISTINCT ?tissue_label; separator=",") AS ?tissues)
+WHERE {
+  ?gene refexo:ensembl/obo:RO_0002428 ?regulated .
+  ?gene refexo:affyProbeset/refexo:isPositivelySpecificTo ?tissue .
+  ?tissue skos:prefLabel ?tissue_label .
+}
+ORDER BY ?tissues

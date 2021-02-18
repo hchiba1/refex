@@ -1,0 +1,26 @@
+#!/usr/bin/env spang2
+# @endpoint orthodev
+# @option -ac --time
+
+PREFIX refexo: <http://purl.jp/bio/01/refexo#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?specific_tissue ?label ?gene_count
+WHERE {
+  ?specific_tissue a refexo:AnatomicalClassification40 ;
+     skos:prefLabel ?label .
+  {
+    SELECT ?specific_tissue (COUNT(?gene) AS ?gene_count)
+    WHERE {
+      {
+        SELECT DISTINCT ?specific_tissue ?gene (GROUP_CONCAT(DISTINCT ?tissue; separator=",") AS ?tissues)
+        WHERE {
+          ?gene refexo:affyProbeset/refexo:isPositivelySpecificTo ?specific_tissue , ?tissue .
+          ?gene refexo:ensembl/obo:RO_0002428/refexo:ncbigene ?down .
+        }
+      }
+      FILTER (?tissues = str(?specific_tissue))
+    }
+  }
+}
+ORDER BY ?specific_tissue
