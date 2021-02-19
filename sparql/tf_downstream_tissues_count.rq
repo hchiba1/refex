@@ -1,0 +1,14 @@
+#!/usr/bin/env spang2
+# @endpoint https://orth.dbcls.jp/sparql-dev
+# @option -ac --time
+
+PREFIX refexo: <http://purl.jp/bio/01/refexo#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?tissue ?label (COUNT(DISTINCT ?downstream) AS ?gene_count)
+WHERE {
+  ?gene refexo:ensembl/obo:RO_0002428/refexo:ncbigene ?downstream .
+  ?downstream refexo:affyProbeset/refexo:isPositivelySpecificTo ?tissue .
+  ?tissue skos:prefLabel ?label .
+}
+ORDER BY ?tissue
