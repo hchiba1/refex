@@ -1,0 +1,22 @@
+#!/usr/bin/env spang2
+# @endpoint https://orth.dbcls.jp/sparql-dev
+# @option -va
+
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX refexo: <http://purl.jp/bio/01/refexo#>
+
+SELECT ?downstream_count ((?total_count - ?downstream_count) AS ?remaining_count)
+WHERE {
+  {
+    SELECT (COUNT(DISTINCT ?downstream) AS ?downstream_count)
+    WHERE {
+      ?upstream obo:RO_0002428 ?downstream .
+    }
+  }
+  {
+    SELECT (COUNT(DISTINCT ?ensg) AS ?total_count)
+    WHERE {
+      ?ensg refexo:ncbigene ?ncbigene .
+    }
+  }
+}

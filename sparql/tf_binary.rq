@@ -1,0 +1,19 @@
+#!/usr/bin/env spang2
+# @endpoint https://orth.dbcls.jp/sparql-dev
+# @option -a
+
+SELECT ?gene_count ?total_gene_count
+WHERE {
+  {
+    SELECT (COUNT(DISTINCT ?gene) AS ?gene_count)
+    WHERE {
+      ?upstream refexo:ensembl/obo:RO_0002428/refexo:ncbigene ?gene .
+    }
+  }
+  {
+    SELECT (COUNT(DISTINCT ?gene) AS ?total_gene_count)
+    WHERE {
+      ?ensg refexo:ncbigene ?gene .
+    }
+  }
+}
