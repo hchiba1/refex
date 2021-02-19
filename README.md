@@ -30,6 +30,13 @@ https://github.com/dbcls/RefEx/tree/master/Rawdata_Processing
 ./id_relation.py original_data/RefEx_ID_Relation_human.tsv > created_rdf/RefEx_ID_Relation_human.ttl
 ```
 
+## Cross-references
+
+```
+wget -O biomart_id_relation 'http://www.ensembl.org/biomart/martservice?query=<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE Query><Query  virtualSchemaName = "default" formatter = "TSV" header = "0" uniqueRows = "0" count = "" datasetConfigVersion = "0.6" ><Dataset name = "hsapiens_gene_ensembl" interface = "default" ><Attribute name = "ensembl_gene_id" /><Attribute name = "ensembl_transcript_id" /><Attribute name = "entrezgene_id" /> <Attribute name = "hgnc_symbol" /><Attribute name = "affy_hg_u133_plus_2" /></Dataset></Query>'
+
+```
+
 ## Example SPARQL
 
 Test endpoint: 
