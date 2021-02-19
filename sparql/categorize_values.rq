@@ -3,7 +3,7 @@
 # @option -vac --time
 # @param sign=Positive
 # @param idref=affyProbeset
-# @input ncbigene:20
+# @input (ncbigene:20)
 
 SELECT ?tissue_40 ?tissue_10_ja ?tissue_10_en ?tissue_40_ja ?tissue_40_en (COUNT(DISTINCT ?gene) AS ?count)
 WHERE {
