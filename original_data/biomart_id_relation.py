@@ -23,14 +23,12 @@ for line in fp:
             ncbigene_ensg[f'{ncbigene_id}:{ensg_id}'] = True
             ensg_ncbigene[f'{ensg_id}:{ncbigene_id}'] = True
 
-for tuple in sorted(ncbigene_ensg.items(), key=lambda x:x[0]):
-    key = tuple[0]
+for key in sorted(ncbigene_ensg.keys()):
     [ncbigene_id, ensg_id] = key.split(':')
     print(f'ncbigene:{ncbigene_id} refexo:ensembl ensg:{ensg_id} .')
 
 print()
 
-for tuple in sorted(ensg_ncbigene.items(), key=lambda x:x[0]):
-    key = tuple[0]
+for key in sorted(ensg_ncbigene.keys()):
     [ensg_id, ncbigene_id] = key.split(':')
     print(f'ensg:{ensg_id} refexo:ncbigene ncbigene:{ncbigene_id} .')
